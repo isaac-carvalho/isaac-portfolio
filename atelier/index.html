@@ -1,0 +1,809 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title data-i18n="doc_title">Ateliê Isaac Carvalho — Alfaiataria de Luxo & Ajustes de Alta Costura</title>
+<meta name="description" content="Alta alfaiataria e ajustes finos por Isaac Carvalho. Experiência premium, caimento impecável e atendimento personalizado.">
+<meta name="theme-color" content="#121613">
+
+<!-- Tailwind CSS & Lucide Icons -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          serif: ['"Cormorant Garamond"', 'serif'],
+          mono: ['"Space Mono"', 'monospace'],
+        },
+        colors: {
+          boutique: {
+            fond: '#FAF8F5',
+            dark: '#121613',
+            gold: '#9E7C35',
+            goldLight: '#C5A86B',
+            line: '#E5DDC8',
+            accent: '#800000', // Crimson/Bordeaux
+            muted: '#5F6B61',
+          }
+        }
+      }
+    }
+  }
+</script>
+<style>
+  body {
+    background-color: #FAF8F5;
+  }
+  .luxury-border {
+    position: relative;
+  }
+  .luxury-border::before {
+    content: "";
+    position: absolute;
+    inset: 6px;
+    border: 1px solid #9E7C35;
+    opacity: 0.35;
+    pointer-events: none;
+  }
+  /* Estilo fita métrica */
+  .tape-bg {
+    background: repeating-linear-gradient(90deg, #121613 0 1px, transparent 1px 8px), #E5DDC8;
+  }
+</style>
+</head>
+<body class="text-boutique-dark antialiased">
+
+<!-- HEADER / NAV -->
+<header class="sticky top-0 z-50 bg-[#FAF8F5]/90 backdrop-blur-md border-b border-boutique-line">
+  <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+    <a href="#" class="flex items-center gap-3">
+      <!-- Logo do Ateliê -->
+      <div class="relative w-8 h-8 flex items-center justify-center">
+        <div class="absolute w-0.5 h-8 bg-boutique-accent rotate-12"></div>
+        <div class="absolute w-8 h-0.5 bg-boutique-accent rotate-12"></div>
+      </div>
+      <div class="flex flex-col">
+        <span class="font-serif text-2xl font-bold tracking-tight">Ateliê Carvalho</span>
+        <span class="font-mono text-[9px] uppercase tracking-[0.2em] text-boutique-gold -mt-1" data-i18n="brand_eyebrow">Alta Alfaiataria</span>
+      </div>
+    </a>
+    
+    <!-- Central Navigation -->
+    <nav class="hidden md:flex items-center gap-8 font-sans text-sm font-semibold text-boutique-muted">
+      <a href="#sobre" class="hover:text-boutique-dark transition-colors" data-i18n="nav_about">O Ateliê</a>
+      <a href="#servicos" class="hover:text-boutique-dark transition-colors" data-i18n="nav_services">Serviços</a>
+      <a href="#orcamento" class="hover:text-boutique-dark transition-colors" data-i18n="nav_wizard">Simulador</a>
+      <a href="#cartao" class="hover:text-boutique-dark transition-colors" data-i18n="nav_card">Cartão de Visita</a>
+    </nav>
+    
+    <!-- Right side: Language Switcher and CTA -->
+    <div class="flex items-center gap-4">
+      <!-- Language Selector extremely visible -->
+      <div class="flex items-center bg-[#F1ECE3] border border-boutique-line p-1 rounded gap-1 font-mono text-[10px]">
+        <button onclick="setLanguage('fr')" id="lang-fr" class="px-2 py-1 rounded transition-all font-bold">FR</button>
+        <button onclick="setLanguage('pt')" id="lang-pt" class="px-2 py-1 rounded transition-all font-bold">PT</button>
+        <button onclick="setLanguage('en')" id="lang-en" class="px-2 py-1 rounded transition-all font-bold">EN</button>
+      </div>
+      
+      <a href="#orcamento" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 border border-boutique-dark text-xs font-bold uppercase tracking-wider hover:bg-boutique-dark hover:text-white transition-all duration-300" data-i18n="btn_book">
+        Agendar Prova
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO SECTION -->
+<section class="relative py-20 md:py-28 overflow-hidden">
+  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-12 gap-12 items-center">
+    <div class="md:col-span-7 flex flex-col gap-6">
+      <div class="flex items-center gap-3">
+        <span class="w-8 h-px bg-boutique-accent"></span>
+        <span class="font-mono text-xs font-bold uppercase tracking-widest text-boutique-accent" data-i18n="hero_eyebrow">Bespoke &amp; Alterations</span>
+      </div>
+      <h1 class="font-serif text-5xl md:text-7xl font-light leading-[1.05] tracking-tight" data-i18n="hero_title">
+        Roupas feitas para se ajustar <span class="italic text-boutique-gold font-normal">perfeitamente</span> a si.
+      </h1>
+      <p class="font-sans text-lg text-[#4A544C] leading-relaxed max-w-xl" data-i18n="hero_description">
+        Há mais de 25 anos a desenhar fatos, camisas e vestidos exclusivos. Uma experiência premium com caimento de excelência e atendimento rigorosamente personalizado.
+      </p>
+      <div class="flex flex-wrap gap-4 mt-2">
+        <a href="#orcamento" class="px-8 py-4 bg-boutique-accent text-white font-bold text-sm tracking-wider uppercase hover:bg-black transition-all duration-300 shadow-xl shadow-boutique-accent/10" data-i18n="hero_cta_primary">
+          Iniciar Simulador &amp; Agendar
+        </a>
+        <a href="#servicos" class="px-8 py-4 border border-boutique-line hover:border-boutique-dark text-boutique-dark font-bold text-sm tracking-wider uppercase transition-all duration-300" data-i18n="hero_cta_secondary">
+          Conhecer Serviços
+        </a>
+      </div>
+      <div class="flex items-center gap-8 mt-6 font-mono text-[10px] text-boutique-muted uppercase tracking-wider">
+        <span class="flex items-center gap-2"><i data-lucide="scissors" class="w-4 h-4 text-boutique-gold"></i> <span data-i18n="hero_feat_1">25 Anos de Tradição</span></span>
+        <span class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-boutique-gold"></i> <span data-i18n="hero_feat_2">Atendimento com Prova</span></span>
+      </div>
+    </div>
+    
+    <div class="md:col-span-5 relative flex justify-center">
+      <!-- Imagem Principal de Alta Qualidade -->
+      <div class="relative w-full max-w-sm aspect-[3/4] bg-boutique-dark overflow-hidden rounded-sm shadow-2xl">
+        <img src="https://images.unsplash.com/photo-1593032465175-481ac7f401a0?w=600&auto=format&fit=crop&q=80" alt="Bespoke Tailoring fabric and tools" class="w-full h-full object-cover opacity-85">
+        <div class="absolute inset-0 bg-gradient-to-t from-boutique-dark/60 via-transparent to-transparent"></div>
+        <div class="absolute bottom-6 left-6 text-white">
+          <p class="font-serif text-2xl font-light italic" data-i18n="hero_quote">"A precisão do corte define a elegância da postura."</p>
+          <span class="font-mono text-[10px] uppercase tracking-widest opacity-75">— Isaac Carvalho</span>
+        </div>
+      </div>
+      <div class="absolute -bottom-6 -left-6 bg-boutique-gold text-white p-6 shadow-2xl flex flex-col items-center justify-center">
+        <span class="font-serif text-4xl font-bold leading-none">25</span>
+        <span class="font-mono text-[9px] uppercase tracking-wider font-bold" data-i18n="hero_years">Anos de Legado</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FITA MÉTRICA SEPARADORA -->
+<div class="tape-bg h-8 flex items-center justify-center border-y border-boutique-line overflow-hidden">
+  <span class="font-mono text-[9px] uppercase tracking-[0.4em] text-boutique-dark/60" data-i18n="ribbon_text">
+    Ateliê Carvalho · Medidas Rigorosas · Caimento Único · Tecidos Selecionados
+  </span>
+</div>
+
+<!-- SOBRE O ATELIÊ -->
+<section id="sobre" class="py-24 bg-[#F5F2EC] border-b border-boutique-line">
+  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+    <div class="relative flex justify-center">
+      <div class="w-full max-w-sm aspect-[4/5] bg-boutique-dark overflow-hidden rounded-sm shadow-xl">
+        <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&auto=format&fit=crop&q=80" alt="Portrait of tailor" class="w-full h-full object-cover opacity-90">
+      </div>
+      <div class="absolute -top-6 -right-6 w-48 bg-[#FAF8F5] p-6 border border-boutique-line shadow-lg">
+        <p class="font-serif text-sm italic text-boutique-muted" data-i18n="about_quote">"Dedicado a quem valoriza o design intemporal."</p>
+      </div>
+    </div>
+    
+    <div class="flex flex-col gap-6">
+      <span class="font-mono text-xs font-bold uppercase tracking-widest text-boutique-accent" data-i18n="about_eyebrow">O Legado de um Mestre</span>
+      <h2 class="font-serif text-4xl md:text-5xl font-light" data-i18n="about_title">A arte de esculpir tecido para corpos reais.</h2>
+      <p class="text-boutique-muted leading-relaxed" data-i18n="about_desc_1">
+        Cada corpo possui linhas únicas, proporções e uma postura singular. Na nossa filosofia de trabalho, recusamos a padronização das fábricas industriais. Desenhamos e moldamos cada casaco, calça, vestido ou camisa a partir de um molde de papel exclusivo para si.
+      </p>
+      <p class="text-boutique-muted leading-relaxed" data-i18n="about_desc_2">
+        Para garantir uma experiência de excelência e pontualidade exemplar, a **Rebeca** coordena de forma exclusiva toda a logística de agendamentos, o acolhimento no ateliê e a entrega segura das suas roupas terminadas.
+      </p>
+      <div class="border-t border-boutique-line pt-6">
+        <p class="font-serif text-xl italic text-boutique-gold" data-i18n="about_quote_2">"O vestuário sob medida não é um luxo opcional; é a afirmação do respeito pela sua própria imagem."</p>
+        <span class="font-mono text-xs uppercase tracking-wider text-boutique-dark font-bold mt-2 block">— Isaac Carvalho</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS & TABELA DE PREÇOS -->
+<section id="servicos" class="py-24">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center max-w-2xl mx-auto flex flex-col gap-4 mb-16">
+      <span class="font-mono text-xs font-bold uppercase tracking-widest text-boutique-accent" data-i18n="srv_eyebrow">O que criamos</span>
+      <h2 class="font-serif text-4xl md:text-5xl font-light" data-i18n="srv_title">Serviços Especializados de Alfaiataria</h2>
+      <p class="text-boutique-muted" data-i18n="srv_desc">Da alta costura sob medida aos ajustes invisíveis de alta precisão.</p>
+    </div>
+    
+    <div class="grid md:grid-cols-2 gap-8">
+      <!-- Alfaiataria Fina -->
+      <div class="bg-white border border-boutique-line p-8 rounded-sm shadow-sm flex flex-col gap-6">
+        <div class="flex items-center gap-4">
+          <div class="p-3 bg-boutique-accent/5 text-boutique-accent border border-boutique-accent/20 rounded-sm">
+            <i data-lucide="scissors" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <h3 class="font-serif text-2xl font-bold" data-i18n="srv_c1_title">Confecção sob Medida</h3>
+            <p class="font-mono text-[9px] uppercase tracking-wider text-boutique-gold" data-i18n="srv_c1_sub">Bespoke Couture</p>
+          </div>
+        </div>
+        <ul class="flex flex-col gap-4 text-sm border-t border-boutique-line pt-6">
+          <li class="flex justify-between items-center border-b border-boutique-line/50 pb-2">
+            <span class="font-semibold" data-i18n="srv_item_1">Fato / Terno Completo</span>
+            <span class="font-mono text-boutique-gold" data-i18n="price_consult">Sob Consulta</span>
+          </li>
+          <li class="flex justify-between items-center border-b border-boutique-line/50 pb-2">
+            <span class="font-semibold" data-i18n="srv_item_2">Blazer Exclusivo</span>
+            <span class="font-mono text-boutique-gold" data-i18n="price_consult">Sob Consulta</span>
+          </li>
+          <li class="flex justify-between items-center border-b border-boutique-line/50 pb-2">
+            <span class="font-semibold" data-i18n="srv_item_3">Camisaria por Medida</span>
+            <span class="font-mono text-boutique-gold" data-i18n="price_consult">Sob Consulta</span>
+          </li>
+          <li class="flex justify-between items-center border-b border-boutique-line/50 pb-2">
+            <span class="font-semibold" data-i18n="srv_item_4">Coletes &amp; Calças Estilizadas</span>
+            <span class="font-mono text-boutique-gold" data-i18n="price_consult">Sob Consulta</span>
+          </li>
+        </ul>
+        <a href="#orcamento" class="mt-auto py-3 bg-boutique-dark text-white text-center font-bold text-xs uppercase tracking-wider hover:bg-boutique-accent transition-all duration-300 rounded-sm" data-i18n="srv_cta_1">
+          Solicitar Orçamento
+        </a>
+      </div>
+
+      <!-- Ajustes Finos -->
+      <div class="bg-white border border-boutique-line p-8 rounded-sm shadow-sm flex flex-col gap-6">
+        <div class="flex items-center gap-4">
+          <div class="p-3 bg-boutique-gold/5 text-boutique-gold border border-boutique-gold/20 rounded-sm">
+            <i data-lucide="sparkles" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <h3 class="font-serif text-2xl font-bold" data-i18n="srv_c2_title">Ajustes &amp; Restauros</h3>
+            <p class="font-mono text-[9px] uppercase tracking-wider text-boutique-gold" data-i18n="srv_c2_sub">Premium Alterations</p>
+          </div>
+        </div>
+        <ul class="flex flex-col gap-4 text-sm border-t border-boutique-line pt-6">
+          <li class="flex justify-between items-center border-b border-boutique-line/50 pb-2">
+            <span class="font-semibold" data-i18n="srv_item_5">Ajuste de Ombros e Mangas de Fato</span>
+            <span class="font-mono text-boutique-gold">Desde €30</span>
+          </li>
+          <li class="flex justify-between items-center border-b border-boutique-line/50 pb-2">
+            <span class="font-semibold" data-i18n="srv_item_6">Subir Punhos e Bainhas Invisíveis</span>
+            <span class="font-mono text-boutique-gold">Desde €15</span>
+          </li>
+          <li class="flex justify-between items-center border-b border-boutique-line/50 pb-2">
+            <span class="font-semibold" data-i18n="srv_item_7">Ajuste de Cintura e Anca (Calça/Saia)</span>
+            <span class="font-mono text-boutique-gold">Desde €18</span>
+          </li>
+          <li class="flex justify-between items-center border-b border-boutique-line/50 pb-2">
+            <span class="font-semibold" data-i18n="srv_item_8">Reestruturação Completa de Casacos</span>
+            <span class="font-mono text-boutique-gold">Desde €60</span>
+          </li>
+          <li class="flex justify-between items-center border-b border-boutique-line/50 pb-2">
+            <span class="font-semibold" data-i18n="srv_item_9">Substituição de Fecho de Correr (Fermeture Éclair)</span>
+            <span class="font-mono text-boutique-gold">Desde €15</span>
+          </li>
+          <li class="flex justify-between items-center border-b border-boutique-line/50 pb-2">
+            <span class="font-semibold" data-i18n="srv_item_10">Encurtar Mangas de Camisa com Punho</span>
+            <span class="font-mono text-boutique-gold">Desde €12</span>
+          </li>
+          <li class="flex justify-between items-center border-b border-boutique-line/50 pb-2">
+            <span class="font-semibold" data-i18n="srv_item_11">Substituição Completa de Forro / Doublure</span>
+            <span class="font-mono text-boutique-gold">Desde €45</span>
+          </li>
+          <li class="flex justify-between items-center border-b border-boutique-line/50 pb-2">
+            <span class="font-semibold" data-i18n="srv_item_12">Reparação de Rasgões e Cerzido Invisível</span>
+            <span class="font-mono text-boutique-gold">Desde €10</span>
+          </li>
+        </ul>
+        <a href="#orcamento" class="mt-auto py-3 bg-boutique-dark text-white text-center font-bold text-xs uppercase tracking-wider hover:bg-boutique-accent transition-all duration-300 rounded-sm" data-i18n="srv_cta_2">
+          Calcular Custo Estimado
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WIZARD / DYNAMIC SIMULATOR -->
+<section id="orcamento" class="py-24 bg-[#F5F2EC] border-y border-boutique-line">
+  <div class="max-w-4xl mx-auto px-6">
+    <div class="text-center flex flex-col gap-3 mb-12">
+      <span class="font-mono text-xs font-bold uppercase tracking-widest text-boutique-accent" data-i18n="wiz_eyebrow">Agendamento Inteligente</span>
+      <h2 class="font-serif text-4xl font-light" data-i18n="wiz_title">Simulador &amp; Reserva de Consulta</h2>
+      <p class="text-boutique-muted text-sm max-w-xl mx-auto" data-i18n="wiz_desc">Escolha os serviços desejados. No final, envie o resumo para a Rebeca agendar a sua prova no ateliê.</p>
+    </div>
+
+    <div class="bg-white border border-boutique-line p-8 md:p-12 rounded-sm shadow-xl relative">
+      <!-- Progress Bar -->
+      <div class="absolute top-0 left-0 right-0 h-1 bg-[#F1ECE3]">
+        <div id="wizard-progress" class="h-full bg-boutique-accent transition-all duration-500" style="width: 25%;"></div>
+      </div>
+
+      <form id="wizardForm" class="flex flex-col gap-8">
+        
+        <!-- Passo 1: Tipo de Serviço -->
+        <div id="step-1" class="wizard-step flex flex-col gap-6">
+          <h3 class="font-serif text-2xl font-bold" data-i18n="wiz_s1_title">1. Que tipo de serviço necessita?</h3>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <label class="border border-boutique-line p-6 hover:border-boutique-accent cursor-pointer rounded-sm flex flex-col gap-2 transition-all bg-[#FAF8F5]">
+              <div class="flex items-center gap-2">
+                <input type="radio" name="service_type" value="Bespoke (Confecção sob medida)" checked class="accent-boutique-accent">
+                <span class="font-serif text-lg font-bold" data-i18n="wiz_s1_opt1">Bespoke / Feito sob Medida</span>
+              </div>
+              <span class="text-xs text-boutique-muted" data-i18n="wiz_s1_opt1_desc">Fato, blazer ou camisa desenhado do zero a partir das suas medidas exclusivas.</span>
+            </label>
+            <label class="border border-boutique-line p-6 hover:border-boutique-accent cursor-pointer rounded-sm flex flex-col gap-2 transition-all bg-[#FAF8F5]">
+              <div class="flex items-center gap-2">
+                <input type="radio" name="service_type" value="Ajustes Premium (Alta Costura)" class="accent-boutique-accent">
+                <span class="font-serif text-lg font-bold" data-i18n="wiz_s1_opt2">Ajustes &amp; Reformulação</span>
+              </div>
+              <span class="text-xs text-boutique-muted" data-i18n="wiz_s1_opt2_desc">Ajustar ombros de casacos, encurtar punhos ou reformular bainhas invisíveis de vestidos.</span>
+            </label>
+          </div>
+          <div class="flex justify-end mt-4">
+            <button type="button" onclick="nextStep(2)" class="px-8 py-3 bg-boutique-dark text-white font-bold text-xs uppercase tracking-wider hover:bg-boutique-accent transition-all rounded-sm" data-i18n="btn_next">Próximo Passo</button>
+          </div>
+        </div>
+
+        <!-- Passo 2: Tipo de Peça -->
+        <div id="step-2" class="wizard-step hidden flex flex-col gap-6">
+          <h3 class="font-serif text-2xl font-bold" data-i18n="wiz_s2_title">2. Qual é a peça de roupa?</h3>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            <label class="border border-boutique-line p-4 cursor-pointer hover:border-boutique-accent rounded-sm transition-all flex items-center gap-3 bg-[#FAF8F5]">
+              <input type="radio" name="garment_type" value="Fato / Blazer" checked class="accent-boutique-accent">
+              <span class="text-xs font-bold uppercase tracking-wider" data-i18n="wiz_s2_opt1">Fato / Blazer</span>
+            </label>
+            <label class="border border-boutique-line p-4 cursor-pointer hover:border-boutique-accent rounded-sm transition-all flex items-center gap-3 bg-[#FAF8F5]">
+              <input type="radio" name="garment_type" value="Camisa / Blusa" class="accent-boutique-accent">
+              <span class="text-xs font-bold uppercase tracking-wider" data-i18n="wiz_s2_opt2">Camisa</span>
+            </label>
+            <label class="border border-boutique-line p-4 cursor-pointer hover:border-boutique-accent rounded-sm transition-all flex items-center gap-3 bg-[#FAF8F5]">
+              <input type="radio" name="garment_type" value="Calças / Saia" class="accent-boutique-accent">
+              <span class="text-xs font-bold uppercase tracking-wider" data-i18n="wiz_s2_opt3">Calça / Saia</span>
+            </label>
+            <label class="border border-boutique-line p-4 cursor-pointer hover:border-boutique-accent rounded-sm transition-all flex items-center gap-3 bg-[#FAF8F5]">
+              <input type="radio" name="garment_type" value="Vestido / Outro" class="accent-boutique-accent">
+              <span class="text-xs font-bold uppercase tracking-wider" data-i18n="wiz_s2_opt4">Vestido / Outro</span>
+            </label>
+          </div>
+          <div class="flex justify-between mt-4">
+            <button type="button" onclick="nextStep(1)" class="px-6 py-3 border border-boutique-line text-xs font-bold uppercase tracking-wider hover:border-boutique-dark transition-all rounded-sm" data-i18n="btn_back">Voltar</button>
+            <button type="button" onclick="nextStep(3)" class="px-8 py-3 bg-boutique-dark text-white font-bold text-xs uppercase tracking-wider hover:bg-boutique-accent transition-all rounded-sm" data-i18n="btn_next">Próximo Passo</button>
+          </div>
+        </div>
+
+        <!-- Passo 3: Prazos e Preferências -->
+        <div id="step-3" class="wizard-step hidden flex flex-col gap-6">
+          <h3 class="font-serif text-2xl font-bold" data-i18n="wiz_s3_title">3. Qual é a sua preferência de prazo?</h3>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <label class="border border-boutique-line p-6 hover:border-boutique-accent cursor-pointer rounded-sm flex flex-col gap-2 transition-all bg-[#FAF8F5]">
+              <div class="flex items-center gap-2">
+                <input type="radio" name="timing_pref" value="Normal (Trabalho detalhado)" checked class="accent-boutique-accent">
+                <span class="font-serif text-lg font-bold" data-i18n="wiz_s3_opt1">Prazo Padrão</span>
+              </div>
+              <span class="text-xs text-boutique-muted" data-i18n="wiz_s3_opt1_desc">Atenção rigorosa aos detalhes e provas programadas.</span>
+            </label>
+            <label class="border border-boutique-line p-6 border-red-500/20 hover:border-red-500 cursor-pointer rounded-sm flex flex-col gap-2 transition-all bg-red-500/5">
+              <div class="flex items-center gap-2">
+                <input type="radio" name="timing_pref" value="Urgente (Ajuste rápido)" class="accent-boutique-accent">
+                <span class="font-serif text-lg font-bold text-red-800" data-i18n="wiz_s3_opt2">Urgente</span>
+              </div>
+              <span class="text-xs text-red-700/80" data-i18n="wiz_s3_opt2_desc">Ajustes prioritários para eventos próximos ou casamentos de última hora.</span>
+            </label>
+          </div>
+          <div class="flex justify-between mt-4">
+            <button type="button" onclick="nextStep(2)" class="px-6 py-3 border border-boutique-line text-xs font-bold uppercase tracking-wider hover:border-boutique-dark transition-all rounded-sm" data-i18n="btn_back">Voltar</button>
+            <button type="button" onclick="nextStep(4)" class="px-8 py-3 bg-boutique-dark text-white font-bold text-xs uppercase tracking-wider hover:bg-boutique-accent transition-all rounded-sm" data-i18n="btn_next">Próximo Passo</button>
+          </div>
+        </div>
+
+        <!-- Passo 4: Contatos e Conclusão -->
+        <div id="step-4" class="wizard-step hidden flex flex-col gap-6">
+          <h3 class="font-serif text-2xl font-bold" data-i18n="wiz_s4_title">4. Enviar Detalhes para Reserva</h3>
+          <div class="grid sm:grid-cols-2 gap-6">
+            <div class="flex flex-col gap-2">
+              <label class="font-mono text-[10px] uppercase font-bold text-boutique-muted" data-i18n="wiz_form_name">O seu Nome</label>
+              <input type="text" id="custName" placeholder="Ex: Jean Dupont" required class="p-3 bg-[#FAF8F5] border border-boutique-line rounded-sm text-sm focus:border-boutique-accent focus:outline-none">
+            </div>
+            <div class="flex flex-col gap-2">
+              <label class="font-mono text-[10px] uppercase font-bold text-boutique-muted" data-i18n="wiz_form_phone">O seu Contacto</label>
+              <input type="tel" id="custPhone" placeholder="Ex: +33 6 12 34 56 78" required class="p-3 bg-[#FAF8F5] border border-boutique-line rounded-sm text-sm focus:border-boutique-accent focus:outline-none">
+            </div>
+          </div>
+          <div class="flex flex-col gap-2">
+            <label class="font-mono text-[10px] uppercase font-bold text-boutique-muted" data-i18n="wiz_form_notes">Detalhes Adicionais (Opcional)</label>
+            <textarea id="custDetails" placeholder="Ex: Fato completo em lã cinzenta para casamento em Outubro..." rows="3" class="p-3 bg-[#FAF8F5] border border-boutique-line rounded-sm text-sm focus:border-boutique-accent focus:outline-none"></textarea>
+          </div>
+          <div class="flex justify-between mt-4">
+            <button type="button" onclick="nextStep(3)" class="px-6 py-3 border border-boutique-line text-xs font-bold uppercase tracking-wider hover:border-boutique-dark transition-all rounded-sm" data-i18n="btn_back">Voltar</button>
+            <button type="submit" class="px-8 py-3 bg-[#25D366] text-white font-bold text-xs uppercase tracking-wider hover:bg-emerald-600 transition-all duration-300 rounded-sm flex items-center gap-2">
+              <span data-i18n="btn_submit_wa">Enviar Pedido no WhatsApp</span> <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- CARTÃO DE VISITA DIRETÓRIO -->
+<section id="cartao" class="py-24 bg-[#FAF8F5]">
+  <div class="max-w-6xl mx-auto px-6 flex flex-col items-center gap-12 text-center">
+    <div class="max-w-2xl flex flex-col gap-4">
+      <span class="font-mono text-xs font-bold uppercase tracking-widest text-boutique-accent" data-i18n="card_sec_eyebrow">Contacto Físico</span>
+      <h2 class="font-serif text-4xl font-light" data-i18n="card_sec_title">Guarde o contacto do seu Alfaiate</h2>
+      <p class="text-boutique-muted" data-i18n="card_sec_desc">Scaneie o código abaixo com o seu telemóvel para abrir a conversa ou ligar para o ateliê.</p>
+    </div>
+
+    <!-- Cartão Físico com Guias de Recorte -->
+    <div class="relative p-8 bg-[#F5F2EC] border border-boutique-line rounded-sm">
+      <div class="absolute -top-3 left-6 bg-boutique-accent text-white px-3 py-1 font-mono text-[8px] uppercase tracking-wider rounded-sm" data-i18n="card_format">
+        Formato Oficial 85x55mm
+      </div>
+      <!-- Cartão Real -->
+      <div class="w-[90mm] h-[55mm] bg-white border border-[#D1C7A9] rounded-sm shadow-2xl relative p-[6mm] flex flex-col justify-between text-left luxury-border">
+        
+        <div class="flex justify-between items-start z-10">
+          <div class="flex flex-col">
+            <span class="font-mono text-[6px] uppercase tracking-wider text-boutique-accent font-bold" data-i18n="card_inner_eyebrow">Couture Sur Mesure de Luxe</span>
+            <span class="font-serif text-xl font-bold text-boutique-dark tracking-tight leading-none">Isaac Carvalho</span>
+            <span class="font-serif text-[9.5px] italic text-boutique-muted mt-1" data-i18n="card_inner_title">Maître Tailleur — 25 ans de métier</span>
+          </div>
+          
+          <div class="flex flex-col items-center gap-1 border-l border-boutique-line pl-3">
+            <div class="w-12 h-12 bg-white p-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" shape-rendering="crispEdges" class="w-full h-full">
+                <path fill="#ffffff" d="M0 0h29v29H0z"/>
+                <path stroke="#121613" d="M1 1.5h7m3 0h1m2 0h1m2 0h1m3 0h7M1 2.5h1m5 0h1m1 0h2m2 0h1m2 0h1m2 0h1m1 0h1m5 0h1M1 3.5h1m1 0h3m1 0h1m2 0h1m1 0h3m2 0h1m1 0h1m1 0h3m1 0h1M1 4.5h1m1 0h3m1 0h1m2 0h3m1 0h1m1 0h2m3 0h1m1 0h3m1 0h1M1 5.5h1m1 0h3m1 0h1m2 0h1m1 0h3m1 0h2m1 0h1m2 0h1m1 0h3m1 0h1M1 6.5h1m5 0h1m2 0h1m1 0h4m2 0h1m1 0h1m5 0h1M1 7.5h7m1 0h1m1 0h1m2 0h1m2 0h1m2 0h7M9 8.5h1m1 0h1m2 0h3m2 0h1M1 9.5h2m1 0h1m1 0h1m2 0h1m3 0h1m1 0h1m4 0h3m3 0h1M2 10.5h1m2 0h1m1 0h1m1 0h1m2 0h1m1 0h2m1 0h1m4 0h2m2 0h2M1 11.5h2m1 0h1m4 0h1m1 0h1m1 0h1m2 0h2m1 0h4m3 0h1M3 12.5h1m2 0h2m1 0h3m1 0h2m2 0h2m3 0h3m2 0h1M1 13.5h2m1 0h1m2 0h1m1 0h2m1 0h2m1 0h1m1 0h4m2 0h3m1 0h1M1 14.5h1m2 0h4m2 0h3m3 0h3m4 0h2m1 0h1M2 15.5h2m1 0h1m1 0h2m2 0h1m1 0h1m3 0h1m2 0h4m1 0h1M3 16.5h3m1 0h1m3 0h2m4 0h1m3 0h3m1 0h2M1 17.5h2m2 0h4m1 0h2m2 0h3m1 0h2m1 0h1m4 0h1M9 18.5h2m2 0h2m1 0h2m2 0h3m1 0h3M1 19.5h7m1 0h1m2 0h1m3 0h1m1 0h1m3 0h1m1 0h2m1 0h1M1 20.5h1m5 0h1m3 0h2m1 0h1m1 0h2m1 0h2m1 0h1m2 0h3m1 0h1M1 21.5h1m1 0h3m1 0h1m2 0h1m2 0h2m1 0h1m1 0h1m2 0h3m1 0h1m2 0h3M1 22.5h1m1 0h3m1 0h1m2 0h2m2 0h2m1 0h1m1 0h1m1 0h1m2 0h1m2 0h3M1 23.5h1m1 0h3m1 0h1m2 0h1m1 0h2m1 0h1m3 0h2m1 0h2m2 0h1m1 0h1M1 24.5h1m5 0h1m2 0h2m1 0h1m2 0h1m1 0h3m2 0h4m2 0h1M1 25.5h7m1 0h1m1 0h1m1 0h2m2 0h1m2 0h1m1 0h2m1 0h1m1 0h2"/>
+              </svg>
+            </div>
+            <span class="font-mono text-[4px] uppercase text-boutique-muted">WhatsApp</span>
+          </div>
+        </div>
+        
+        <div class="flex flex-col gap-0.5 z-10">
+          <div class="text-[7.5px] text-boutique-dark flex gap-2">
+            <span class="font-mono text-[6px] text-boutique-accent font-bold">Contact:</span>
+            <span>+33 6 73 10 28 01 (Rendez-vous avec Rebeca)</span>
+          </div>
+          <div class="text-[7.5px] text-boutique-dark flex gap-2">
+            <span class="font-mono text-[6px] text-boutique-accent font-bold">Atelier:</span>
+            <span>Aurillac, Cantal (15) · Lundi au Samedi</span>
+          </div>
+          <div class="text-[7.5px] text-boutique-dark flex gap-2">
+            <span class="font-mono text-[6px] text-boutique-accent font-bold">Services:</span>
+            <span>Costumes Sur Mesure, Chemises &amp; Retouches</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    
+    <a href="../folha_a4_alfaiate_10_cartoes.pdf" target="_blank" class="px-6 py-3 border border-boutique-dark hover:bg-boutique-dark hover:text-white transition-all text-xs font-bold uppercase tracking-wider flex items-center gap-2">
+      <i data-lucide="printer" class="w-4 h-4"></i> <span data-i18n="card_btn_print">Descarregar PDF Imprimível</span>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-boutique-dark text-white py-16 border-t border-boutique-line/10">
+  <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+    <div class="flex flex-col items-center md:items-start gap-2">
+      <span class="font-serif text-2xl font-bold">Ateliê Carvalho</span>
+      <span class="font-mono text-[10px] text-boutique-goldLight tracking-wider uppercase" data-i18n="footer_sub">Alta Alfaiataria &amp; Retouches Finos</span>
+    </div>
+    <div class="flex flex-col items-center md:items-end text-sm text-boutique-muted gap-1">
+      <p>© 2026 Ateliê Isaac Carvalho. <span data-i18n="footer_rights">Todos os direitos reservados.</span></p>
+      <p class="text-xs" data-i18n="footer_rebeca">Assessoria de Agendamento por Rebeca</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Dicionário de Traduções
+  const translations = {
+    pt: {
+      doc_title: "Ateliê Isaac Carvalho — Alfaiataria de Luxo & Ajustes de Alta Costura",
+      brand_eyebrow: "Alta Alfaiataria",
+      nav_about: "O Ateliê",
+      nav_services: "Serviços",
+      nav_wizard: "Simulador",
+      nav_card: "Cartão de Visita",
+      btn_book: "Agendar Prova",
+      hero_eyebrow: "Bespoke & Alterations",
+      hero_title: "Roupas feitas para se ajustar <span class='italic text-boutique-gold font-normal'>perfeitamente</span> a si.",
+      hero_description: "Há mais de 25 anos a desenhar fatos, camisas e vestidos exclusivos. Uma experiência premium com caimento de excelência e atendimento rigorosamente personalizado.",
+      hero_cta_primary: "Iniciar Simulador & Agendar",
+      hero_cta_secondary: "Conhecer Serviços",
+      hero_feat_1: "25 Anos de Tradição",
+      hero_feat_2: "Atendimento com Prova",
+      hero_quote: "\"A precisão do corte define a elegância da postura.\"",
+      hero_years: "Anos de Legado",
+      ribbon_text: "Ateliê Carvalho · Medidas Rigorosas · Caimento Único · Tecidos Selecionados",
+      about_quote: "\"Dedicado a quem valoriza o design intemporal.\"",
+      about_eyebrow: "O Legado de um Mestre",
+      about_title: "A arte de esculpir tecido para corpos reais.",
+      about_desc_1: "Cada corpo possui linhas únicas, proporções e uma postura singular. Na nossa filosofia de trabalho, recusamos a padronização das fábricas industriais. Desenhamos e moldamos cada casaco, calça, vestido ou camisa a partir de um molde de papel exclusivo para si.",
+      about_desc_2: "Para garantir uma experiência de excelência e pontualidade exemplar, a Rebeca coordena de forma exclusiva toda a logística de agendamentos, o acolhimento no ateliê e a entrega segura das suas roupas terminadas.",
+      about_quote_2: "\"O vestuário sob medida não é um luxo opcional; é a afirmação do respeito pela sua própria imagem.\"",
+      srv_eyebrow: "O que criamos",
+      srv_title: "Serviços Especializados de Alfaiataria",
+      srv_desc: "Da alta costura sob medida aos ajustes invisíveis de alta precisão.",
+      srv_c1_title: "Confecção sob Medida",
+      srv_c1_sub: "Bespoke Couture",
+      srv_item_1: "Fato / Terno Completo",
+      srv_item_2: "Blazer Exclusivo",
+      srv_item_3: "Camisaria por Medida",
+      srv_item_4: "Coletes & Calças Estilizadas",
+      price_consult: "Sob Consulta",
+      srv_cta_1: "Solicitar Orçamento",
+      srv_c2_title: "Ajustes & Restauros",
+      srv_c2_sub: "Premium Alterations",
+      srv_item_5: "Ajuste de Ombros e Mangas de Fato",
+      srv_item_6: "Subir Punhos e Bainhas Invisíveis",
+      srv_item_7: "Ajuste de Cintura e Anca (Calça/Saia)",
+      srv_item_8: "Reestruturação Completa de Casacos",
+      srv_item_9: "Substituição de Fecho de Correr (Fermeture Éclair)",
+      srv_item_10: "Encurtar Mangas de Camisa com Punho",
+      srv_item_11: "Substituição Completa de Forro / Doublure",
+      srv_item_12: "Reparação de Rasgões e Cerzido Invisível",
+      srv_cta_2: "Calcular Custo Estimado",
+      wiz_eyebrow: "Agendamento Inteligente",
+      wiz_title: "Simulador & Reserva de Consulta",
+      wiz_desc: "Escolha os serviços desejados. No final, envie o resumo para a Rebeca agendar a sua prova no ateliê.",
+      wiz_s1_title: "1. Que tipo de serviço necessita?",
+      wiz_s1_opt1: "Bespoke / Feito sob Medida",
+      wiz_s1_opt1_desc: "Fato, blazer ou camisa desenhado do zero a partir das suas medidas exclusivas.",
+      wiz_s1_opt2: "Ajustes & Reformulação",
+      wiz_s1_opt2_desc: "Ajustar ombros de casacos, encurtar punhos ou reformular bainhas invisíveis de vestidos.",
+      wiz_s2_title: "2. Qual é a peça de roupa?",
+      wiz_s2_opt1: "Fato / Blazer",
+      wiz_s2_opt2: "Camisa",
+      wiz_s2_opt3: "Calça / Saia",
+      wiz_s2_opt4: "Vestido / Outro",
+      wiz_s3_title: "3. Qual é a sua preferência de prazo?",
+      wiz_s3_opt1: "Prazo Padrão",
+      wiz_s3_opt1_desc: "Atenção rigorosa aos detalhes e provas programadas.",
+      wiz_s3_opt2: "Urgente",
+      wiz_s3_opt2_desc: "Ajustes prioritários para eventos próximos ou casamentos de última hora.",
+      wiz_s4_title: "4. Enviar Detalhes para Reserva",
+      wiz_form_name: "O seu Nome",
+      wiz_form_phone: "O seu Contacto",
+      wiz_form_notes: "Detalhes Adicionais (Opcional)",
+      btn_submit_wa: "Enviar Pedido no WhatsApp",
+      btn_next: "Próximo Passo",
+      btn_back: "Voltar",
+      card_sec_eyebrow: "Contacto Físico",
+      card_sec_title: "Guarde o contacto do seu Alfaiate",
+      card_sec_desc: "Scaneie o código abaixo com o seu telemóvel para abrir a conversa ou ligar para o ateliê.",
+      card_format: "Formato Oficial 85x55mm",
+      card_inner_eyebrow: "Couture Sur Mesure de Luxe",
+      card_inner_title: "Maître Tailleur — 25 ans de métier",
+      card_btn_print: "Descarregar PDF Imprimível",
+      footer_sub: "Alta Alfaiataria & Retouches Finos",
+      footer_rights: "Todos os direitos reservados.",
+      footer_rebeca: "Assessoria de Agendamento por Rebeca"
+    },
+    fr: {
+      doc_title: "Atelier Isaac Carvalho — Tailleur de Luxe & Retouches de Haute Couture",
+      brand_eyebrow: "Haute Tailleur",
+      nav_about: "L'Atelier",
+      nav_services: "Services",
+      nav_wizard: "Simulateur",
+      nav_card: "Carte de Visite",
+      btn_book: "Prendre RDV",
+      hero_eyebrow: "Bespoke & Retouches",
+      hero_title: "Des vêtements coupés pour s'adapter <span class='italic text-boutique-gold font-normal'>parfaitement</span> à vous.",
+      hero_description: "Depuis plus de 25 ans à façonner des costumes, chemises et robes exclusifs. Une expérience haut de gamme avec un tombé d'excellence et un accueil rigoureusement personnalisé.",
+      hero_cta_primary: "Lancer le Simulateur",
+      hero_cta_secondary: "Découvrir les Services",
+      hero_feat_1: "25 Ans d'Expérience",
+      hero_feat_2: "Service d'Essai",
+      hero_quote: "\"La précision de la coupe définit l'élégance de la posture.\"",
+      hero_years: "Ans de Savoir-Faire",
+      ribbon_text: "Atelier Carvalho · Mesures Rigoureuses · Coupe Unique · Tissus Nobles",
+      about_quote: "\"Dédié à ceux qui apprécient le design intemporel.\"",
+      about_eyebrow: "Le Savoir-Faire d'un Maître",
+      about_title: "L'art de sculpter le tissu pour des silhouettes réelles.",
+      about_desc_1: "Chaque silhouette possède des lignes uniques et une posture singulière. Dans notre philosophie, nous refusons les standards industriels. Nous dessinons chaque costume, pantalon, robe ou chemise à partir d'un patron papier exclusif fait pour vous.",
+      about_desc_2: "Pour vous assurer une expérience d'excellence et une ponctualité exemplaire, Rebeca coordonne de façon exclusive toute la logistique de prise de rendez-vous, l'accueil à l'atelier et la remise de vos créations.",
+      about_quote_2: "\"Le sur-mesure n'est pas un luxe facultatif, c'est l'affirmation du respect de sa propre image.\"",
+      srv_eyebrow: "Nos créations",
+      srv_title: "Services Spécialisés de Tailleur",
+      srv_desc: "De la haute couture sur mesure aux retouches invisibles de haute précision.",
+      srv_c1_title: "Création Sur Mesure",
+      srv_c1_sub: "Bespoke Couture",
+      srv_item_1: "Costume Complet",
+      srv_item_2: "Blazer Exclusif",
+      srv_item_3: "Chemise Sur Mesure",
+      srv_item_4: "Gilets & Pantalons Ciselés",
+      price_consult: "Sur Devis",
+      srv_cta_1: "Demander un Devis",
+      srv_c2_title: "Retouches & Ajustements",
+      srv_c2_sub: "Premium Alterations",
+      srv_item_5: "Ajustement d'Épaules et Manches de Veste",
+      srv_item_6: "Ourlet Invisible & Raccourcissement",
+      srv_item_7: "Cintrage & Ajustement Hanches",
+      srv_item_8: "Restructuration Complète de Manteaux",
+      srv_item_9: "Changement de Fermeture Éclair (Zipp)",
+      srv_item_10: "Raccourcir Manches de Chemise avec Poignet",
+      srv_item_11: "Remplacement de Doublure de Veste/Manteau",
+      srv_item_12: "Réparation de Déchirures & Stoppage Invisible",
+      srv_cta_2: "Estimer le Coût",
+      wiz_eyebrow: "Rendez-vous Intelligent",
+      wiz_title: "Simulateur & Réservation",
+      wiz_desc: "Sélectionnez les services souhaités. À la fin, envoyez le récapitulatif à Rebeca pour planifier votre essayage à l'atelier.",
+      wiz_s1_title: "1. De quel service avez-vous besoin ?",
+      wiz_s1_opt1: "Bespoke / Création Sur Mesure",
+      wiz_s1_opt1_desc: "Costume, blazer ou chemise confectionné à partir de vos mesures uniques.",
+      wiz_s1_opt2: "Ajustements & Retouches",
+      wiz_s1_opt2_desc: "Retoucher une veste, raccourcir des manches ou ajuster une robe de mariée.",
+      wiz_s2_title: "2. Quel est le type de vêtement ?",
+      wiz_s2_opt1: "Costume / Blazer",
+      wiz_s2_opt2: "Chemise",
+      wiz_s2_opt3: "Pantalon / Jupe",
+      wiz_s2_opt4: "Robe / Autre",
+      wiz_s3_title: "3. Quel est votre délai ?",
+      wiz_s3_opt1: "Délai Standard",
+      wiz_s3_opt1_desc: "Soin rigoureux apporté aux détails et essayages programmés.",
+      wiz_s3_opt2: "Urgent",
+      wiz_s3_opt2_desc: "Retouches prioritaires pour un événement proche ou mariage de dernière minute.",
+      wiz_s4_title: "4. Envoyer les détails pour réserver",
+      wiz_form_name: "Votre Nom",
+      wiz_form_phone: "Votre Contact",
+      wiz_form_notes: "Détails Supplémentaires (Optionnel)",
+      btn_submit_wa: "Envoyer la Demande sur WhatsApp",
+      btn_next: "Étape Suivante",
+      btn_back: "Retour",
+      card_sec_eyebrow: "Contact Physique",
+      card_sec_title: "Conservez le contact de votre Tailleur",
+      card_sec_desc: "Scannez le code ci-dessous avec votre mobile pour lancer la discussion ou appeler l'atelier.",
+      card_format: "Format Officiel 85x55mm",
+      card_inner_eyebrow: "Couture Sur Mesure de Luxe",
+      card_inner_title: "Maître Tailleur — 25 ans de métier",
+      card_btn_print: "Télécharger le PDF Imprimable",
+      footer_sub: "Haute Tailleur & Retouches Fines",
+      footer_rights: "Tous droits réservés.",
+      footer_rebeca: "Planification assurée par Rebeca"
+    },
+    en: {
+      doc_title: "Isaac Carvalho Atelier — Luxury Bespoke Tailoring & Premium Alterations",
+      brand_eyebrow: "Bespoke Tailoring",
+      nav_about: "The Atelier",
+      nav_services: "Services",
+      nav_wizard: "Simulator",
+      nav_card: "Business Card",
+      btn_book: "Book Consultation",
+      hero_eyebrow: "Bespoke & Alterations",
+      hero_title: "Garments handcrafted to fit you <span class='italic text-boutique-gold font-normal'>perfectly</span>.",
+      hero_description: "Over 25 years of experience tailoring exclusive suits, shirts, and gowns. A premium experience featuring exceptional fit and deeply personalized care.",
+      hero_cta_primary: "Start Simulator & Book",
+      hero_cta_secondary: "Explore Services",
+      hero_feat_1: "25 Years of Tradition",
+      hero_feat_2: "Fittings Included",
+      hero_quote: "\"The precision of the cut defines the elegance of one's posture.\"",
+      hero_years: "Years of Legacy",
+      ribbon_text: "Carvalho Atelier · Precise Measurements · Unique Fit · Fine Fabrics",
+      about_quote: "\"Dedicated to those who appreciate timeless design.\"",
+      about_eyebrow: "A Master's Legacy",
+      about_title: "The art of sculpting fabric for real bodies.",
+      about_desc_1: "Every silhouette has unique lines and a singular posture. In our philosophy, we reject mass-produced standards. We design each suit, trouser, dress, or shirt from a custom paper pattern made just for you.",
+      about_desc_2: "To ensure a premium experience and outstanding punctuality, Rebeca exclusively coordinates all scheduling logistics, welcoming you to the atelier, and the safe handover of your finished garments.",
+      about_quote_2: "\"Custom-tailored clothing is not an optional luxury; it is a statement of respect for your own image.\"",
+      srv_eyebrow: "Our Creations",
+      srv_title: "Specialized Tailoring Services",
+      srv_desc: "From bespoke high fashion to high-precision invisible alterations.",
+      srv_c1_title: "Bespoke Tailoring",
+      srv_c1_sub: "Bespoke Couture",
+      srv_item_1: "Full Custom Suit",
+      srv_item_2: "Exclusive Blazer",
+      srv_item_3: "Custom Shirts",
+      srv_item_4: "Tailored Vests & Trouser",
+      price_consult: "Upon Estimate",
+      srv_cta_1: "Request Quote",
+      srv_c2_title: "Alterations & Restorations",
+      srv_c2_sub: "Premium Alterations",
+      srv_item_5: "Suit Jacket Shoulder & Sleeve Adjustments",
+      srv_item_6: "Invisible Hem & Cuff Shortening",
+      srv_item_7: "Trouser/Skirt Waist & Hip Adjustments",
+      srv_item_8: "Full Coat Re-structuring",
+      srv_item_9: "Zipper Replacement (Fermeture Éclair)",
+      srv_item_10: "Shorten Shirt Sleeves with Cuff",
+      srv_item_11: "Full Sleeve or Coat Lining Replacement",
+      srv_item_12: "Tears Repair & Invisible Mending",
+      srv_cta_2: "Estimate Cost",
+      wiz_eyebrow: "Smart Scheduling",
+      wiz_title: "Simulator & Booking",
+      wiz_desc: "Choose the desired services. At the end, send the summary to Rebeca to schedule your fitting session at the atelier.",
+      wiz_s1_title: "1. What kind of service do you need?",
+      wiz_s1_opt1: "Bespoke / Custom Tailored",
+      wiz_s1_opt1_desc: "Suits, blazers, or shirts designed from scratch using your unique measurements.",
+      wiz_s1_opt2: "Premium Alterations",
+      wiz_s1_opt2_desc: "Altering jacket shoulders, shortening sleeves, or adjusting dress hems.",
+      wiz_s2_title: "2. What garment needs work?",
+      wiz_s2_opt1: "Suit / Blazer",
+      wiz_s2_opt2: "Shirt",
+      wiz_s2_opt3: "Trouser / Skirt",
+      wiz_s2_opt4: "Dress / Other",
+      wiz_s3_title: "3. What is your preferred timeline?",
+      wiz_s3_opt1: "Standard Timeline",
+      wiz_s3_opt1_desc: "Rigorous attention to detail and scheduled fittings.",
+      wiz_s3_opt2: "Urgent",
+      wiz_s3_opt2_desc: "Priority adjustments for upcoming events or last-minute weddings.",
+      wiz_s4_title: "4. Send Details to Complete Booking",
+      wiz_form_name: "Your Name",
+      wiz_form_phone: "Your Contact Number",
+      wiz_form_notes: "Additional Details (Optional)",
+      btn_submit_wa: "Send Request via WhatsApp",
+      btn_next: "Next Step",
+      btn_back: "Back",
+      card_sec_eyebrow: "Physical Contact",
+      card_sec_title: "Keep your Tailor's Contact Info",
+      card_sec_desc: "Scan the QR code below with your mobile phone to start a conversation or call the atelier.",
+      card_format: "Official Format 85x55mm",
+      card_inner_eyebrow: "Couture Sur Mesure de Luxe",
+      card_inner_title: "Maître Tailleur — 25 ans de métier",
+      card_btn_print: "Download Printable PDF",
+      footer_sub: "Bespoke Tailoring & Fine Alterations",
+      footer_rights: "All rights reserved.",
+      footer_rebeca: "Scheduling managed by Rebeca"
+    }
+  };
+
+  let currentLang = localStorage.getItem('isaac_portfolio_lang') || 'fr';
+
+  function setLanguage(lang) {
+    currentLang = lang;
+    localStorage.setItem('isaac_portfolio_lang', lang);
+    
+    // Atualizar elementos que contêm data-i18n
+    document.querySelectorAll('[data-i18n]').forEach(elem => {
+      const key = elem.getAttribute('data-i18n');
+      if (translations[lang][key]) {
+        elem.innerHTML = translations[lang][key];
+      }
+    });
+
+    // Atualizar placeholders de inputs
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(elem => {
+      const key = elem.getAttribute('data-i18n-placeholder');
+      if (translations[lang][key]) {
+        elem.placeholder = translations[lang][key];
+      }
+    });
+
+    // Atualizar classes ativas dos botões de idioma
+    ['fr', 'pt', 'en'].forEach(l => {
+      const btn = document.getElementById(`lang-${l}`);
+      if (l === lang) {
+        btn.classList.add('bg-boutique-accent', 'text-white');
+        btn.classList.remove('text-boutique-dark', 'hover:bg-boutique-line/50');
+      } else {
+        btn.classList.remove('bg-boutique-accent', 'text-white');
+        btn.classList.add('text-boutique-dark', 'hover:bg-boutique-line/50');
+      }
+    });
+
+    // Atualizar o atributo lang da tag html
+    document.documentElement.lang = lang;
+  }
+
+  // Inicialização do Lucide
+  lucide.createIcons();
+
+  // Inicializar com o idioma selecionado
+  setLanguage(currentLang);
+
+  // Wizard de Agendamento
+  function nextStep(stepNum) {
+    document.querySelectorAll('.wizard-step').forEach(step => {
+      step.classList.add('hidden');
+    });
+    document.getElementById(`step-${stepNum}`).classList.remove('hidden');
+    const progressWidth = stepNum * 25;
+    document.getElementById('wizard-progress').style.width = `${progressWidth}%`;
+  }
+
+  // Formulário Submit
+  document.getElementById('wizardForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const serviceType = document.querySelector('input[name="service_type"]:checked').value;
+    const garmentType = document.querySelector('input[name="garment_type"]:checked').value;
+    const timingPref = document.querySelector('input[name="timing_pref"]:checked').value;
+    const custName = document.getElementById('custName').value.trim();
+    const custPhone = document.getElementById('custPhone').value.trim();
+    const custDetails = document.getElementById('custDetails').value.trim();
+
+    // Mensagem WhatsApp em função do idioma
+    let formattedMessage = "";
+    if (currentLang === 'fr') {
+      formattedMessage = `Bonjour Rebeca ! J'aimerais réserver une consultation avec le Maître Isaac.\n\n*Service :* ${serviceType}\n*Type de vêtement :* ${garmentType}\n*Délai souhaité :* ${timingPref}\n\n*Client :* ${custName}\n*Téléphone :* ${custPhone}\n*Notes :* ${custDetails || 'Aucune.'}`;
+    } else if (currentLang === 'en') {
+      formattedMessage = `Hello Rebeca! I would like to book a tailoring consultation with Master Isaac.\n\n*Service:* ${serviceType}\n*Garment:* ${garmentType}\n*Timeline Preference:* ${timingPref}\n\n*Client:* ${custName}\n*Phone:* ${custPhone}\n*Notes:* ${custDetails || 'None.'}`;
+    } else {
+      formattedMessage = `Olá Rebeca! Gostaria de agendar uma consulta de alfaiataria com o Mestre Isaac.\n\n*Serviço:* ${serviceType}\n*Peça:* ${garmentType}\n*Período Preferencial:* ${timingPref}\n\n*Cliente:* ${custName}\n*Telemóvel:* ${custPhone}\n*Notas:* ${custDetails || 'Sem observações.'}`;
+    }
+    
+    const whatsappLink = `https://wa.me/33673102801?text=${encodeURIComponent(formattedMessage)}`;
+    window.open(whatsappLink, '_blank');
+  });
+</script>
+</body>
+</html>

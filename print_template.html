@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Impression A4 — Cartons de Visite en Français</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&family=Outfit:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sans: 'Outfit', sans-serif;
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --mono: 'Space Mono', monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: #FAF8F5;
+  font-family: var(--sans);
+  color: #1E231F;
+  padding: 20px;
+}
+.no-print {
+  max-w: 6xl;
+  margin: 0 auto 30px;
+  background: white;
+  padding: 25px;
+  border: 1px solid #E2DAC4;
+  border-radius: 4px;
+}
+.no-print h1 { font-family: var(--serif); font-size: 28px; margin-bottom: 8px; }
+.no-print p { font-size: 14px; color: #6B624E; margin-bottom: 20px; }
+.controls { display: flex; gap: 15px; align-items: center; }
+.btn {
+  background: #800000;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  border-radius: 2px;
+}
+.btn:hover { background: #1E231F; }
+.select-input {
+  padding: 10px;
+  border: 1px solid #E2DAC4;
+  font-size: 12px;
+  background: white;
+  font-weight: bold;
+}
+
+.a4-page {
+  width: 210mm;
+  height: 297mm;
+  padding: 11mm 15mm;
+  background: white;
+  margin: 0 auto;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  display: grid;
+  grid-template-columns: repeat(2, 90mm);
+  grid-template-rows: repeat(5, 55mm);
+  gap: 0;
+  justify-content: center;
+  align-content: center;
+  box-sizing: border-box;
+}
+.card-wrapper {
+  width: 90mm;
+  height: 55mm;
+  position: relative;
+  box-sizing: border-box;
+}
+.card-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border: 0.3px dashed #DDD;
+  pointer-events: none;
+}
+
+/* Card Tailor */
+.card-tailor {
+  width: 100%;
+  height: 100%;
+  background: #FDFCF9;
+  border: 1px solid #E2DAC4;
+  padding: 5.5mm 6mm;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  position: relative;
+}
+.card-tailor::before {
+  content: "";
+  position: absolute;
+  inset: 2mm;
+  border: 0.5px solid #96722C;
+  opacity: 0.4;
+}
+.tailor-header { display: flex; justify-content: space-between; align-items: flex-start; z-index: 10; }
+.tailor-brand { display: flex; flex-direction: column; }
+.tailor-eyebrow { font-family: var(--mono); font-size: 7.5px; color: #A52A2A; text-transform: uppercase; font-weight: 700; }
+.tailor-name { font-family: var(--serif); font-size: 21px; font-weight: 700; color: #1E231F; line-height: 1.1; }
+.tailor-title { font-family: var(--serif); font-size: 10px; font-style: italic; color: #6B624E; margin-top: 1px; }
+.tailor-details { display: flex; flex-direction: column; gap: 2.5px; z-index: 10; }
+.tailor-item { font-size: 9.5px; color: #1E231F; display: flex; gap: 5px; align-items: center; }
+.tailor-item strong { font-family: var(--mono); color: #A52A2A; font-size: 7.5px; min-width: 14px; text-transform: uppercase; }
+
+/* Card Mechanic */
+.card-mechanic {
+  width: 100%;
+  height: 100%;
+  background: #1F2226;
+  border: 1px solid #3D444F;
+  padding: 5.5mm 6mm;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  position: relative;
+}
+.card-mechanic::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1.2mm;
+  background: #D45B2E;
+}
+.mechanic-header { display: flex; justify-content: space-between; align-items: flex-start; z-index: 10; }
+.mechanic-brand { display: flex; flex-direction: column; }
+.mechanic-eyebrow { font-family: var(--mono); font-size: 7.5px; color: #C6923F; text-transform: uppercase; font-weight: 700; }
+.mechanic-name { font-size: 20px; font-weight: 800; color: #F5F7FA; line-height: 1.1; letter-spacing: -0.01em; }
+.mechanic-title { font-family: var(--mono); font-size: 7px; color: #8D99AE; text-transform: uppercase; margin-top: 1px; }
+.mechanic-details { display: flex; flex-direction: column; gap: 2.5px; z-index: 10; }
+.mechanic-item { font-size: 9.5px; color: #F5F7FA; display: flex; gap: 5px; align-items: center; }
+.mechanic-item strong { font-family: var(--mono); color: #D45B2E; font-size: 7.5px; min-width: 14px; text-transform: uppercase; }
+
+/* QR Code Area */
+.qr-area { display: flex; flex-direction: column; align-items: center; gap: 2.5px; border-left: 0.8px solid #E2DAC4; padding-left: 3.5mm; }
+.card-mechanic .qr-area { border-left-color: #3D444F; }
+.qr-box { width: 17mm; height: 17mm; background: white; padding: 1px; }
+.qr-box svg { width: 100%; height: 100%; }
+.qr-text { font-family: var(--mono); font-size: 5.5px; color: #A52A2A; font-weight: 700; text-transform: uppercase; text-align: center; }
+.card-mechanic .qr-text { color: #D45B2E; }
+
+/* Print Styles */
+@media print {
+  body { background: white; padding: 0; margin: 0; }
+  .no-print { display: none !important; }
+  .a4-page {
+    box-shadow: none;
+    margin: 0;
+    page-break-after: always;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="no-print">
+  <h1>Outil d'Impression A4 — Cartes de Visite</h1>
+  <p>Configurez la feuille A4 avec 10 cartes (90x55 mm) avec traits de coupe. Choisissez la profession ci-dessous puis appuyez sur <strong>Imprimer</strong>.</p>
+  
+  <div class="controls">
+    <select class="select-input" id="cardSelector">
+      <option value="tailor">Tailleur de Luxe — Isaac Carvalho</option>
+      <option value="mechanic">Mécanicien Machines — Isaac Carvalho</option>
+    </select>
+    <button class="btn" onclick="window.print()">Imprimer la feuille A4</button>
+  </div>
+</div>
+
+<div class="a4-page" id="printArea">
+  <!-- Dynamic cards -->
+</div>
+
+<script>
+const qrSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" shape-rendering="crispEdges"><path fill="#ffffff" d="M0 0h29v29H0z"/><path stroke="#1E231F" d="M1 1.5h7m3 0h1m2 0h1m2 0h1m3 0h7M1 2.5h1m5 0h1m1 0h2m2 0h1m2 0h1m2 0h1m1 0h1m5 0h1M1 3.5h1m1 0h3m1 0h1m2 0h1m1 0h3m2 0h1m1 0h1m1 0h3m1 0h1M1 4.5h1m1 0h3m1 0h1m2 0h3m1 0h1m1 0h2m3 0h1m1 0h3m1 0h1M1 5.5h1m1 0h3m1 0h1m2 0h1m1 0h3m1 0h2m1 0h1m2 0h1m1 0h3m1 0h1M1 6.5h1m5 0h1m2 0h1m1 0h4m2 0h1m1 0h1m5 0h1M1 7.5h7m1 0h1m1 0h1m2 0h1m2 0h1m2 0h7M9 8.5h1m1 0h1m2 0h3m2 0h1M1 9.5h2m1 0h1m1 0h1m2 0h1m3 0h1m1 0h1m4 0h3m3 0h1M2 10.5h1m2 0h1m1 0h1m1 0h1m2 0h1m1 0h2m1 0h1m4 0h2m2 0h2M1 11.5h2m1 0h1m4 0h1m1 0h1m1 0h1m2 0h2m1 0h4m3 0h1M3 12.5h1m2 0h2m1 0h3m1 0h2m2 0h2m3 0h3m2 0h1M1 13.5h2m1 0h1m2 0h1m1 0h2m1 0h2m1 0h1m1 0h4m2 0h3m1 0h1M1 14.5h1m2 0h4m2 0h3m3 0h3m4 0h2m1 0h1M2 15.5h2m1 0h1m1 0h2m2 0h1m1 0h1m3 0h1m2 0h4m1 0h1M3 16.5h3m1 0h1m3 0h2m4 0h1m3 0h3m1 0h2M1 17.5h2m2 0h4m1 0h2m2 0h3m1 0h2m1 0h1m4 0h1M9 18.5h2m2 0h2m1 0h2m2 0h3m1 0h3M1 19.5h7m1 0h1m2 0h1m3 0h1m1 0h1m3 0h1m1 0h2m1 0h1M1 20.5h1m5 0h1m3 0h2m1 0h1m1 0h2m1 0h2m1 0h1m2 0h3m1 0h1M1 21.5h1m1 0h3m1 0h1m2 0h1m2 0h2m1 0h1m1 0h1m2 0h3m1 0h1m2 0h3M1 22.5h1m1 0h3m1 0h1m2 0h2m2 0h2m1 0h1m1 0h1m1 0h1m2 0h1m2 0h3M1 23.5h1m1 0h3m1 0h1m2 0h1m1 0h2m1 0h1m3 0h2m1 0h2m2 0h1m1 0h1M1 24.5h1m5 0h1m2 0h2m1 0h1m2 0h1m1 0h3m2 0h4m2 0h1M1 25.5h7m1 0h1m1 0h1m1 0h2m2 0h1m2 0h1m1 0h2m1 0h1m1 0h2"/></svg>`;
+
+function renderSheet(type) {
+  const container = document.getElementById('printArea');
+  container.innerHTML = '';
+  
+  for(let i = 0; i < 10; i++) {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'card-wrapper';
+    
+    if (type === 'tailor') {
+      wrapper.innerHTML = `
+        <div class="card-tailor">
+          <div class="tailor-header">
+            <div class="tailor-brand">
+              <span class="tailor-eyebrow">Couture Sur Mesure de Luxe</span>
+              <span class="tailor-name">Isaac Carvalho</span>
+              <span class="tailor-title">Maître Tailleur — 25 ans de métier</span>
+            </div>
+            <div class="qr-area">
+              <div class="qr-box">${qrSvg}</div>
+              <span class="qr-text">WhatsApp</span>
+            </div>
+          </div>
+          <div class="tailor-details">
+            <div class="tailor-item"><strong>Contact:</strong> <span>+33 6 73 10 28 01 (Rendez-vous avec Rebeca)</span></div>
+            <div class="tailor-item"><strong>Atelier:</strong> <span>Aurillac, Cantal (15) · Lundi au Samedi</span></div>
+            <div class="tailor-item"><strong>Services:</strong> <span>Costumes Sur Mesure, Chemises &amp; Retouches</span></div>
+          </div>
+        </div>
+      `;
+    } else {
+      wrapper.innerHTML = `
+        <div class="card-mechanic">
+          <div class="mechanic-header">
+            <div class="mechanic-brand">
+              <span class="mechanic-eyebrow">Assistance Urgente 24h</span>
+              <span class="mechanic-name">Isaac Carvalho</span>
+              <span class="mechanic-title">Mécanicien de Machines à Coudre</span>
+            </div>
+            <div class="qr-area">
+              <div class="qr-box">${qrSvg}</div>
+              <span class="qr-text">Appeler</span>
+            </div>
+          </div>
+          <div class="mechanic-details">
+            <div class="mechanic-item"><strong>WhatsApp:</strong> <span>+33 6 73 10 28 01 (Réparation le jour même)</span></div>
+            <div class="mechanic-item"><strong>Lieu:</strong> <span>Aurillac, Cantal (15) · À Domicile, Atelier &amp; Usine</span></div>
+            <div class="mechanic-item"><strong>Machines:</strong> <span>Domestiques, Industrielles, Surjeteuses...</span></div>
+          </div>
+        </div>
+      `;
+    }
+    
+    container.appendChild(wrapper);
+  }
+}
+
+document.getElementById('cardSelector').addEventListener('change', function(e) {
+  renderSheet(e.target.value);
+});
+
+// Initialize with tailor
+renderSheet('tailor');
+</script>
+</body>
+</html>

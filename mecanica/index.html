@@ -1,0 +1,650 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title data-i18n="doc_title">Isaac Carvalho — Assistência Técnica Especializada de Máquinas de Costura</title>
+<meta name="description" content="Reparação e afinação especializada de máquinas de costura industriais e domésticas ao domicílio. Mais de 15 anos de experiência.">
+<meta name="theme-color" content="#0F1012">
+
+<!-- Tailwind CSS & Lucide Icons -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['"Outfit"', 'sans-serif'],
+          mono: ['"Space Mono"', 'monospace'],
+        },
+        colors: {
+          mechanic: {
+            fond: '#0E1012',
+            dark: '#08090A',
+            card: '#16191D',
+            amber: '#F59E0B', // Laiton/Amber
+            orange: '#EA580C', // Rust/Orange
+            border: '#2E333B',
+            textMuted: '#94A3B8',
+          }
+        }
+      }
+    }
+  }
+</script>
+<style>
+  body {
+    background-color: #0E1012;
+  }
+  /* Borda laranja rustica */
+  .mechanic-border {
+    position: relative;
+  }
+  .mechanic-border::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: #EA580C;
+  }
+</style>
+</head>
+<body class="text-slate-100 antialiased font-sans">
+
+<!-- HEADER / NAV -->
+<header class="sticky top-0 z-50 bg-mechanic-fond/95 backdrop-blur-md border-b border-mechanic-border">
+  <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+    <a href="#" class="flex items-center gap-3">
+      <!-- Logo Mecânica -->
+      <div class="p-2 bg-mechanic-orange/10 border border-mechanic-orange/30 rounded">
+        <i data-lucide="settings" class="w-6 h-6 text-mechanic-orange animate-spin-slow"></i>
+      </div>
+      <div class="flex flex-col">
+        <span class="text-xl font-bold tracking-tight text-white font-sans">Isaac Carvalho</span>
+        <span class="font-mono text-[9px] uppercase tracking-widest text-mechanic-amber -mt-1" data-i18n="brand_eyebrow">Mecânica de Precisão</span>
+      </div>
+    </a>
+    <nav class="hidden md:flex items-center gap-8 font-sans text-sm font-semibold text-mechanic-textMuted">
+      <a href="#experiencia" class="hover:text-white transition-colors" data-i18n="nav_benefits">Vantagens</a>
+      <a href="#marcas" class="hover:text-white transition-colors" data-i18n="nav_brands">Marcas</a>
+      <a href="#diagnostico" class="hover:text-white transition-colors" data-i18n="nav_diag">Diagnóstico</a>
+      <a href="#cartao" class="hover:text-white transition-colors" data-i18n="nav_card">Cartão de Visita</a>
+    </nav>
+    
+    <!-- Right side: Language Switcher and CTA -->
+    <div class="flex items-center gap-4">
+      <!-- Language Selector extremely visible -->
+      <div class="flex items-center bg-[#16191D] border border-mechanic-border p-1 rounded gap-1 font-mono text-[10px]">
+        <button onclick="setLanguage('fr')" id="lang-fr" class="px-2 py-1 rounded transition-all font-bold">FR</button>
+        <button onclick="setLanguage('pt')" id="lang-pt" class="px-2 py-1 rounded transition-all font-bold">PT</button>
+        <button onclick="setLanguage('en')" id="lang-en" class="px-2 py-1 rounded transition-all font-bold">EN</button>
+      </div>
+
+      <a href="#diagnostico" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 bg-mechanic-orange text-white text-xs font-bold uppercase tracking-wider hover:bg-orange-700 transition-all duration-300 rounded" data-i18n="btn_call">
+        Chamar Técnico
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO SECTION -->
+<section class="relative py-20 md:py-28 overflow-hidden bg-gradient-to-b from-mechanic-dark to-mechanic-fond">
+  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-12 gap-12 items-center">
+    <div class="md:col-span-7 flex flex-col gap-6">
+      <div class="flex items-center gap-3">
+        <span class="w-8 h-px bg-mechanic-orange"></span>
+        <span class="font-mono text-xs font-bold uppercase tracking-widest text-mechanic-orange" data-i18n="hero_eyebrow">Assistência Técnica Móvel</span>
+      </div>
+      <h1 class="text-4xl md:text-6xl font-extrabold leading-tight text-white tracking-tight" data-i18n="hero_title">
+        Máquina de costura parada é <span class="text-mechanic-amber font-medium">prejuízo</span> na certa.
+      </h1>
+      <p class="text-lg text-mechanic-textMuted leading-relaxed max-w-xl" data-i18n="hero_desc">
+        Mais de 15 anos de especialização técnica em afinação, reparação e manutenção de máquinas de costura domésticas e industriais. Vou diretamente à sua casa, ateliê ou confecção.
+      </p>
+      <div class="flex flex-wrap gap-4 mt-2">
+        <a href="#diagnostico" class="px-8 py-4 bg-mechanic-orange text-white font-bold text-sm tracking-wider uppercase hover:bg-orange-700 transition-all duration-300 shadow-xl shadow-mechanic-orange/20 rounded" data-i18n="hero_cta_1">
+          Solicitar Assistência
+        </a>
+        <a href="#marcas" class="px-8 py-4 border border-mechanic-border hover:border-white text-white font-bold text-sm tracking-wider uppercase transition-all duration-300 rounded" data-i18n="hero_cta_2">
+          Marcas que Reparo
+        </a>
+      </div>
+      <div class="flex items-center gap-8 mt-6 font-mono text-[10px] text-mechanic-textMuted uppercase tracking-wider">
+        <span class="flex items-center gap-2"><i data-lucide="wrench" class="w-4 h-4 text-mechanic-amber"></i> <span data-i18n="hero_feat_1">+15 Anos de Experiência</span></span>
+        <span class="flex items-center gap-2"><i data-lucide="truck" class="w-4 h-4 text-mechanic-amber"></i> <span data-i18n="hero_feat_2">Atendimento ao Domicílio</span></span>
+      </div>
+    </div>
+    
+    <div class="md:col-span-5 relative flex justify-center">
+      <div class="relative w-full max-w-sm aspect-[3/4] bg-mechanic-card overflow-hidden rounded-md shadow-2xl border border-mechanic-border">
+        <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?w=600&auto=format&fit=crop&q=80" alt="Sewing machine mechanism details" class="w-full h-full object-cover opacity-75">
+        <div class="absolute inset-0 bg-gradient-to-t from-mechanic-fond via-transparent to-transparent"></div>
+        <div class="absolute bottom-6 left-6 right-6">
+          <p class="font-mono text-xs text-mechanic-amber font-bold uppercase tracking-wider" data-i18n="hero_box_eyebrow">Mecânica de Alta Precisão</p>
+          <h3 class="text-xl font-bold text-white mt-1" data-i18n="hero_box_title">Ajuste milimétrico de laçadores, barras e transporte de dentes.</h3>
+        </div>
+      </div>
+      <div class="absolute -bottom-6 -left-6 bg-mechanic-amber text-mechanic-dark p-6 shadow-2xl flex flex-col items-center justify-center rounded">
+        <span class="text-4xl font-extrabold leading-none">+15</span>
+        <span class="font-mono text-[9px] uppercase tracking-wider font-bold" data-i18n="hero_box_badge">Anos de Especialização</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFÍCIOS -->
+<section id="experiencia" class="py-24 bg-mechanic-fond">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="bg-mechanic-card border border-mechanic-border p-8 rounded-md flex flex-col gap-4">
+        <div class="w-12 h-12 rounded bg-mechanic-orange/10 flex items-center justify-center border border-mechanic-orange/30 text-mechanic-orange">
+          <i data-lucide="home" class="w-6 h-6"></i>
+        </div>
+        <h3 class="text-xl font-bold" data-i18n="bene_1_title">Reparação no Local</h3>
+        <p class="text-sm text-mechanic-textMuted" data-i18n="bene_1_desc">Não precisa de carregar a sua máquina pesada. Vou até à sua morada, ateliê ou unidade de confecção industrial para fazer a reparação.</p>
+      </div>
+
+      <div class="bg-mechanic-card border border-mechanic-border p-8 rounded-md flex flex-col gap-4">
+        <div class="w-12 h-12 rounded bg-mechanic-amber/10 flex items-center justify-center border border-mechanic-amber/30 text-mechanic-amber">
+          <i data-lucide="clock" class="w-6 h-6"></i>
+        </div>
+        <h3 class="text-xl font-bold" data-i18n="bene_2_title">Máxima Agilidade</h3>
+        <p class="text-sm text-mechanic-textMuted" data-i18n="bene_2_desc">Se a sua produção está parada por avaria, dou prioridade máxima. Rapidez e eficácia absoluta para colocar a sua linha de costura em funcionamento.</p>
+      </div>
+
+      <div class="bg-mechanic-card border border-mechanic-border p-8 rounded-md flex flex-col gap-4">
+        <div class="w-12 h-12 rounded bg-emerald-500/10 flex items-center justify-center border border-emerald-500/30 text-emerald-500">
+          <i data-lucide="shield-check" class="w-6 h-6"></i>
+        </div>
+        <h3 class="text-xl font-bold" data-i18n="bene_3_title">Garantia Técnica</h3>
+        <p class="text-sm text-mechanic-textMuted" data-i18n="bene_3_desc">Todas as afinações e substituições de peças contam com garantia de funcionamento e suporte pós-reparação direto com o técnico.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARCAS E EQUIPAMENTOS -->
+<section id="marcas" class="py-24 bg-mechanic-dark border-y border-mechanic-border">
+  <div class="max-w-6xl mx-auto px-6 text-center">
+    <span class="font-mono text-xs font-bold uppercase tracking-widest text-mechanic-orange" data-i18n="brand_eyebrow_sec">Marcas de Confiança</span>
+    <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-3 mb-12" data-i18n="brand_title">Marcas Domésticas &amp; Industriais</h2>
+    
+    <div class="grid grid-cols-2 md:grid-cols-6 gap-4">
+      <div class="bg-mechanic-card border border-mechanic-border py-6 rounded font-mono font-bold tracking-widest text-sm text-mechanic-textMuted">SINGER</div>
+      <div class="bg-mechanic-card border border-mechanic-border py-6 rounded font-mono font-bold tracking-widest text-sm text-mechanic-textMuted">BROTHER</div>
+      <div class="bg-mechanic-card border border-mechanic-border py-6 rounded font-mono font-bold tracking-widest text-sm text-mechanic-textMuted">JANOME</div>
+      <div class="bg-mechanic-card border border-mechanic-border py-6 rounded font-mono font-bold tracking-widest text-sm text-mechanic-textMuted">JUKI</div>
+      <div class="bg-mechanic-card border border-mechanic-border py-6 rounded font-mono font-bold tracking-widest text-sm text-mechanic-textMuted">PFAFF</div>
+      <div class="bg-mechanic-card border border-mechanic-border py-6 rounded font-mono font-bold tracking-widest text-sm text-mechanic-textMuted">SIRUBA</div>
+    </div>
+  </div>
+</section>
+
+<!-- DIAGNÓSTICO INTERATIVO DE ALTA CONVERSÃO -->
+<section id="diagnostico" class="py-24 bg-mechanic-fond">
+  <div class="max-w-3xl mx-auto px-6">
+    <div class="text-center flex flex-col gap-4 mb-12">
+      <span class="font-mono text-xs font-bold uppercase tracking-widest text-mechanic-orange" data-i18n="wiz_eyebrow">Diagnóstico Rápido</span>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-white" data-i18n="wiz_title">Solicite uma Reparação</h2>
+      <p class="text-mechanic-textMuted" data-i18n="wiz_desc">Informe os detalhes da avaria e a urgência para receber uma estimativa e agendar a visita técnica.</p>
+    </div>
+
+    <!-- Wizard Diagnóstico -->
+    <div class="bg-mechanic-card border border-mechanic-border p-8 md:p-12 rounded shadow-2xl relative overflow-hidden">
+      <!-- Barra Progresso -->
+      <div class="absolute top-0 left-0 right-0 h-1.5 bg-mechanic-fond">
+        <div id="diagnostico-progress" class="h-full bg-mechanic-orange transition-all duration-500" style="width: 25%;"></div>
+      </div>
+
+      <form id="diagnosticoForm" class="flex flex-col gap-8">
+        
+        <!-- Passo 1: Tipo de Máquina -->
+        <div id="dstep-1" class="diag-step flex flex-col gap-6">
+          <h3 class="text-xl font-bold text-white" data-i18n="wiz_s1_title">1. Qual é o tipo de máquina?</h3>
+          <div class="grid grid-cols-2 gap-4">
+            <label class="border border-mechanic-border p-6 hover:border-mechanic-orange cursor-pointer rounded flex flex-col items-center gap-3 transition-all bg-[#0E1012]">
+              <input type="radio" name="machine_type" value="Máquina Doméstica" checked class="accent-mechanic-orange">
+              <span class="text-sm font-bold" data-i18n="wiz_s1_opt1">Máquina Doméstica</span>
+              <span class="text-[10px] text-mechanic-textMuted text-center" data-i18n="wiz_s1_opt1_desc">Portátil ou móvel antigo (Singer, Brother, Janome, etc.)</span>
+            </label>
+            <label class="border border-mechanic-border p-6 hover:border-mechanic-orange cursor-pointer rounded flex flex-col items-center gap-3 transition-all bg-[#0E1012]">
+              <input type="radio" name="machine_type" value="Máquina Industrial" class="accent-mechanic-orange">
+              <span class="text-sm font-bold" data-i18n="wiz_s1_opt2">Industrial (Reta/Overlock)</span>
+              <span class="text-[10px] text-mechanic-textMuted text-center" data-i18n="wiz_s1_opt2_desc">Produção rápida, galoneiras, corte-e-costura industrial.</span>
+            </label>
+          </div>
+          <div class="flex justify-end mt-4">
+            <button type="button" onclick="nextDiagStep(2)" class="px-8 py-3 bg-mechanic-orange text-white font-bold text-xs uppercase tracking-wider hover:bg-orange-700 transition-all rounded" data-i18n="btn_next">Próximo Passo</button>
+          </div>
+        </div>
+
+        <!-- Passo 2: Sintomas da Avaria -->
+        <div id="dstep-2" class="diag-step hidden flex flex-col gap-6">
+          <h3 class="text-xl font-bold text-white" data-i18n="wiz_s2_title">2. Qual é o sintoma da avaria?</h3>
+          <div class="grid grid-cols-2 gap-4">
+            <label class="border border-mechanic-border p-4 cursor-pointer hover:border-mechanic-orange rounded transition-all flex items-center gap-3 bg-[#0E1012]">
+              <input type="checkbox" name="symptoms" value="Linha Parte Frequentemente" class="accent-mechanic-orange">
+              <span class="text-xs font-bold uppercase tracking-wider" data-i18n="wiz_s2_opt1">Linha partindo</span>
+            </label>
+            <label class="border border-mechanic-border p-4 cursor-pointer hover:border-mechanic-orange rounded transition-all flex items-center gap-3 bg-[#0E1012]">
+              <input type="checkbox" name="symptoms" value="Ponto Pulando / Falhando" class="accent-mechanic-orange">
+              <span class="text-xs font-bold uppercase tracking-wider" data-i18n="wiz_s2_opt2">Ponto falhando</span>
+            </label>
+            <label class="border border-mechanic-border p-4 cursor-pointer hover:border-mechanic-orange rounded transition-all flex items-center gap-3 bg-[#0E1012]">
+              <input type="checkbox" name="symptoms" value="Máquina Travada / Motor Não Roda" class="accent-mechanic-orange">
+              <span class="text-xs font-bold uppercase tracking-wider" data-i18n="wiz_s2_opt3">Máquina travada</span>
+            </label>
+            <label class="border border-mechanic-border p-4 cursor-pointer hover:border-mechanic-orange rounded transition-all flex items-center gap-3 bg-[#0E1012]">
+              <input type="checkbox" name="symptoms" value="Barulho Estranho / Agulha Bate" class="accent-mechanic-orange">
+              <span class="text-xs font-bold uppercase tracking-wider" data-i18n="wiz_s2_opt4">Barulho estranho</span>
+            </label>
+          </div>
+          <div class="flex justify-between mt-4">
+            <button type="button" onclick="nextDiagStep(1)" class="px-6 py-3 border border-mechanic-border text-xs font-bold uppercase tracking-wider hover:border-white transition-all rounded" data-i18n="btn_back">Voltar</button>
+            <button type="button" onclick="nextDiagStep(3)" class="px-8 py-3 bg-mechanic-orange text-white font-bold text-xs uppercase tracking-wider hover:bg-orange-700 transition-all rounded" data-i18n="btn_next">Próximo Passo</button>
+          </div>
+        </div>
+
+        <!-- Passo 3: Nível de Urgência -->
+        <div id="dstep-3" class="diag-step hidden flex flex-col gap-6">
+          <h3 class="text-xl font-bold text-white" data-i18n="wiz_s3_title">3. Qual é o nível de urgência?</h3>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <label class="border border-mechanic-border p-6 hover:border-mechanic-orange cursor-pointer rounded flex flex-col items-center gap-2 transition-all bg-[#0E1012]">
+              <input type="radio" name="urgency" value="Normal (Agendar Visita)" checked class="accent-mechanic-orange">
+              <span class="text-sm font-bold text-white" data-i18n="wiz_s3_opt1">Normal</span>
+              <span class="text-[10px] text-mechanic-textMuted" data-i18n="wiz_s3_opt1_desc">Afinação geral ou revisão regular de funcionamento.</span>
+            </label>
+            <label class="border border-mechanic-border p-6 border-red-500/30 hover:border-red-500 cursor-pointer rounded flex flex-col items-center gap-2 transition-all bg-red-500/5">
+              <input type="radio" name="urgency" value="Urgente - Produção Parada!" class="accent-mechanic-orange">
+              <span class="text-sm font-bold text-red-400" data-i18n="wiz_s3_opt2">URGENTE (Produção Parada!)</span>
+              <span class="text-[10px] text-red-300" data-i18n="wiz_s3_opt2_desc">Avaria crítica, paragem de linha de montagem industrial.</span>
+            </label>
+          </div>
+          <div class="flex justify-between mt-4">
+            <button type="button" onclick="nextDiagStep(2)" class="px-6 py-3 border border-mechanic-border text-xs font-bold uppercase tracking-wider hover:border-white transition-all rounded" data-i18n="btn_back">Voltar</button>
+            <button type="button" onclick="nextDiagStep(4)" class="px-8 py-3 bg-mechanic-orange text-white font-bold text-xs uppercase tracking-wider hover:bg-orange-700 transition-all rounded" data-i18n="btn_next">Próximo Passo</button>
+          </div>
+        </div>
+
+        <!-- Passo 4: Contato e Localização -->
+        <div id="dstep-4" class="diag-step hidden flex flex-col gap-6">
+          <h3 class="text-xl font-bold text-white" data-i18n="wiz_s4_title">4. Finalizar o Pedido de Reparação</h3>
+          <div class="grid sm:grid-cols-2 gap-6">
+            <div class="flex flex-col gap-2">
+              <label class="font-mono text-[10px] uppercase font-bold text-mechanic-textMuted" data-i18n="wiz_form_name">O seu Nome</label>
+              <input type="text" id="diagName" placeholder="Ex: Jean Martin" required class="p-3 bg-mechanic-fond border border-mechanic-border rounded text-sm text-white focus:border-mechanic-orange focus:outline-none">
+            </div>
+            <div class="flex flex-col gap-2">
+              <label class="font-mono text-[10px] uppercase font-bold text-mechanic-textMuted" data-i18n="wiz_form_phone">O seu Telemóvel</label>
+              <input type="tel" id="diagPhone" placeholder="Ex: +33 6 12 34 56 78" required class="p-3 bg-mechanic-fond border border-mechanic-border rounded text-sm text-white focus:border-mechanic-orange focus:outline-none">
+            </div>
+          </div>
+          <div class="flex flex-col gap-2">
+            <label class="font-mono text-[10px] uppercase font-bold text-mechanic-textMuted" data-i18n="wiz_form_notes">Sua Localização / Notas da Avaria</label>
+            <textarea id="diagNotes" placeholder="Ex: Moro no centro, minha Singer clássica está travada..." rows="3" class="p-3 bg-mechanic-fond border border-mechanic-border rounded text-sm text-white focus:border-mechanic-orange focus:outline-none"></textarea>
+          </div>
+          <div class="flex justify-between mt-4">
+            <button type="button" onclick="nextDiagStep(3)" class="px-6 py-3 border border-mechanic-border text-xs font-bold uppercase tracking-wider hover:border-white transition-all rounded" data-i18n="btn_back">Voltar</button>
+            <button type="submit" class="px-8 py-3 bg-[#25D366] text-white font-bold text-xs uppercase tracking-wider hover:bg-emerald-600 transition-all duration-300 rounded flex items-center gap-2">
+              <span data-i18n="btn_submit_wa">Solicitar Mecânico no WhatsApp</span> <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- CARTÃO DE VISITA MECÂNICA -->
+<section id="cartao" class="py-24 bg-mechanic-dark">
+  <div class="max-w-6xl mx-auto px-6 flex flex-col items-center gap-12 text-center">
+    <div class="max-w-2xl flex flex-col gap-4">
+      <span class="font-mono text-xs font-bold uppercase tracking-widest text-mechanic-orange" data-i18n="card_sec_eyebrow">Contacto Direto</span>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-white" data-i18n="card_sec_title">Guarde o contacto do seu Mecânico</h2>
+      <p class="text-mechanic-textMuted" data-i18n="card_sec_desc">Leia o código abaixo com o seu telemóvel para enviar mensagens ou ligar diretamente para reparações.</p>
+    </div>
+
+    <!-- Cartão Físico com Guias de Recorte -->
+    <div class="relative p-8 bg-mechanic-fond border border-mechanic-border rounded">
+      <div class="absolute -top-3 left-6 bg-mechanic-orange text-white px-3 py-1 font-mono text-[8px] uppercase tracking-wider rounded" data-i18n="card_format">
+        Formato Oficial 85x55mm
+      </div>
+      <!-- Cartão Real -->
+      <div class="w-[90mm] h-[55mm] bg-mechanic-card border border-mechanic-border rounded shadow-2xl relative p-[6mm] flex flex-col justify-between text-left mechanic-border">
+        
+        <div class="flex justify-between items-start z-10">
+          <div class="flex flex-col">
+            <span class="font-mono text-[6px] uppercase tracking-widest text-mechanic-amber font-bold" data-i18n="card_inner_eyebrow">Assistance Urgente 24h</span>
+            <span class="text-lg font-bold text-white tracking-tight leading-tight">Isaac Carvalho</span>
+            <span class="font-mono text-[6.5px] text-mechanic-textMuted mt-0.5" data-i18n="card_inner_title">Mécanicien de Machines à Coudre</span>
+          </div>
+          
+          <div class="flex flex-col items-center gap-1 border-l border-mechanic-border pl-3">
+            <div class="w-12 h-12 bg-white p-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" shape-rendering="crispEdges" class="w-full h-full">
+                <path fill="#ffffff" d="M0 0h29v29H0z"/>
+                <path stroke="#1E231F" d="M1 1.5h7m3 0h1m2 0h1m2 0h1m3 0h7M1 2.5h1m5 0h1m1 0h2m2 0h1m2 0h1m2 0h1m1 0h1m5 0h1M1 3.5h1m1 0h3m1 0h1m2 0h1m1 0h3m2 0h1m1 0h1m1 0h3m1 0h1M1 4.5h1m1 0h3m1 0h1m2 0h3m1 0h1m1 0h2m3 0h1m1 0h3m1 0h1M1 5.5h1m1 0h3m1 0h1m2 0h1m1 0h3m1 0h2m1 0h1m2 0h1m1 0h3m1 0h1M1 6.5h1m5 0h1m2 0h1m1 0h4m2 0h1m1 0h1m5 0h1M1 7.5h7m1 0h1m1 0h1m2 0h1m2 0h1m2 0h7M9 8.5h1m1 0h1m2 0h3m2 0h1M1 9.5h2m1 0h1m1 0h1m2 0h1m3 0h1m1 0h1m4 0h3m3 0h1M2 10.5h1m2 0h1m1 0h1m1 0h1m2 0h1m1 0h2m1 0h1m4 0h2m2 0h2M1 11.5h2m1 0h1m4 0h1m1 0h1m1 0h1m2 0h2m1 0h4m3 0h1M3 12.5h1m2 0h2m1 0h3m1 0h2m2 0h2m3 0h3m2 0h1M1 13.5h2m1 0h1m2 0h1m1 0h2m1 0h2m1 0h1m1 0h4m2 0h3m1 0h1M1 14.5h1m2 0h4m2 0h3m3 0h3m4 0h2m1 0h1M2 15.5h2m1 0h1m1 0h2m2 0h1m1 0h1m3 0h1m2 0h4m1 0h1M3 16.5h3m1 0h1m3 0h2m4 0h1m3 0h3m1 0h2M1 17.5h2m2 0h4m1 0h2m2 0h3m1 0h2m1 0h1m4 0h1M9 18.5h2m2 0h2m1 0h2m2 0h3m1 0h3M1 19.5h7m1 0h1m2 0h1m3 0h1m1 0h1m3 0h1m1 0h2m1 0h1M1 20.5h1m5 0h1m3 0h2m1 0h1m1 0h2m1 0h2m1 0h1m2 0h3m1 0h1M1 21.5h1m1 0h3m1 0h1m2 0h1m2 0h2m1 0h1m1 0h1m2 0h3m1 0h1m2 0h3M1 22.5h1m1 0h3m1 0h1m2 0h2m2 0h2m1 0h1m1 0h1m1 0h1m2 0h1m2 0h3M1 23.5h1m1 0h3m1 0h1m2 0h1m1 0h2m1 0h1m3 0h2m1 0h2m2 0h1m1 0h1M1 24.5h1m5 0h1m2 0h2m1 0h1m2 0h1m1 0h3m2 0h4m2 0h1M1 25.5h7m1 0h1m1 0h1m1 0h2m2 0h1m2 0h1m1 0h2m1 0h1m1 0h2"/>
+              </svg>
+            </div>
+            <span class="font-mono text-[4px] text-mechanic-textMuted uppercase">WhatsApp</span>
+          </div>
+        </div>
+        
+        <div class="flex flex-col gap-0.5 z-10">
+          <div class="text-[7.5px] text-white flex gap-2">
+            <span class="font-mono text-[6px] text-mechanic-orange font-bold">WhatsApp:</span>
+            <span>+33 6 73 10 28 01 (Réparation le jour même)</span>
+          </div>
+          <div class="text-[7.5px] text-white flex gap-2">
+            <span class="font-mono text-[6px] text-mechanic-orange font-bold">Lieu:</span>
+            <span>Aurillac, Cantal (15) · À Domicile, Atelier &amp; Usine</span>
+          </div>
+          <div class="text-[7.5px] text-white flex gap-2">
+            <span class="font-mono text-[6px] text-mechanic-orange font-bold">Machines:</span>
+            <span>Domestiques, Industrielles, Surjeteuses...</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    
+    <a href="../folha_a4_mecanico_10_cartoes.pdf" target="_blank" class="px-6 py-3 border border-mechanic-border hover:border-white hover:text-white transition-all text-xs font-bold uppercase tracking-wider flex items-center gap-2 rounded">
+      <i data-lucide="printer" class="w-4 h-4 text-mechanic-orange"></i> <span data-i18n="card_btn_print">Descarregar PDF Imprimível</span>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-mechanic-dark text-slate-400 py-16 border-t border-mechanic-border/50">
+  <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+    <div class="flex flex-col items-center md:items-start gap-2">
+      <span class="text-xl font-bold text-white">Isaac Carvalho</span>
+      <span class="font-mono text-[10px] text-mechanic-amber tracking-wider uppercase" data-i18n="footer_sub">Manutenção &amp; Engenharia de Costura</span>
+    </div>
+    <div class="flex flex-col items-center md:items-end text-sm text-mechanic-textMuted gap-1">
+      <p>© 2026 Isaac Carvalho. <span data-i18n="footer_rights">Todos os direitos reservados.</span></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Dicionário de Traduções
+  const translations = {
+    pt: {
+      doc_title: "Isaac Carvalho — Assistência Técnica Especializada de Máquinas de Costura",
+      brand_eyebrow: "Mecânica de Precisão",
+      nav_benefits: "Vantagens",
+      nav_brands: "Marcas",
+      nav_diag: "Diagnóstico",
+      nav_card: "Cartão de Visita",
+      btn_call: "Chamar Técnico",
+      hero_eyebrow: "Assistência Técnica Móvel",
+      hero_title: "Máquina de costura parada é <span class='text-mechanic-amber font-medium'>prejuízo</span> na certa.",
+      hero_desc: "Mais de 15 anos de especialização técnica em afinação, reparação e manutenção de máquinas de costura domésticas e industriais. Vou diretamente à sua casa, ateliê ou confecção.",
+      hero_cta_1: "Solicitar Assistência",
+      hero_cta_2: "Marcas que Reparo",
+      hero_feat_1: "+15 Anos de Experiência",
+      hero_feat_2: "Atendimento ao Domicílio",
+      hero_box_eyebrow: "Mecânica de Alta Precisão",
+      hero_box_title: "Ajuste milimétrico de laçadores, barras e transporte de dentes.",
+      hero_box_badge: "Anos de Especialização",
+      bene_1_title: "Reparação no Local",
+      bene_1_desc: "Não precisa de carregar a sua máquina pesada. Vou até à sua morada, ateliê ou unidade de confecção industrial para fazer a reparação.",
+      bene_2_title: "Máxima Agilidade",
+      bene_2_desc: "Se a sua produção está parada por avaria, dou prioridade máxima. Rapidez e eficácia absoluta para colocar a sua linha de costura em funcionamento.",
+      bene_3_title: "Garantia Técnica",
+      bene_3_desc: "Todas as afinações e substituições de peças contam com garantia de funcionamento e suporte pós-reparação direto com o técnico.",
+      brand_eyebrow_sec: "Marcas de Confiança",
+      brand_title: "Marcas Domésticas & Industriais",
+      wiz_eyebrow: "Diagnóstico Rápido",
+      wiz_title: "Solicite uma Reparação",
+      wiz_desc: "Informe os detalhes da avaria e a urgência para receber uma estimativa e agendar a visita técnica.",
+      wiz_s1_title: "1. Qual é o tipo de máquina?",
+      wiz_s1_opt1: "Máquina Doméstica",
+      wiz_s1_opt1_desc: "Portátil ou móvel antigo (Singer, Brother, Janome, etc.)",
+      wiz_s1_opt2: "Industrial (Reta/Overlock)",
+      wiz_s1_opt2_desc: "Produção rápida, galoneiras, corte-e-costura industrial.",
+      wiz_s2_title: "2. Qual é o sintoma da avaria?",
+      wiz_s2_opt1: "Linha partindo",
+      wiz_s2_opt2: "Ponto falhando",
+      wiz_s2_opt3: "Máquina travada",
+      wiz_s2_opt4: "Barulho estranho",
+      wiz_s3_title: "3. Qual é o nível de urgência?",
+      wiz_s3_opt1: "Normal",
+      wiz_s3_opt1_desc: "Afinação geral ou revisão regular de funcionamento.",
+      wiz_s3_opt2: "URGENTE (Produção Parada!)",
+      wiz_s3_opt2_desc: "Avaria crítica, paragem de linha de montagem industrial.",
+      wiz_s4_title: "4. Finalizar o Pedido de Reparação",
+      wiz_form_name: "O seu Nome",
+      wiz_form_phone: "O seu Telemóvel",
+      wiz_form_notes: "Sua Localização / Notas da Avaria",
+      btn_submit_wa: "Solicitar Mecânico no WhatsApp",
+      btn_next: "Próximo Passo",
+      btn_back: "Voltar",
+      card_sec_eyebrow: "Contacto Direto",
+      card_sec_title: "Guarde o contacto do seu Mecânico",
+      card_sec_desc: "Leia o código abaixo com o seu telemóvel para enviar mensagens ou ligar diretamente para reparações.",
+      card_format: "Formato Oficial 85x55mm",
+      card_inner_eyebrow: "Assistance Urgente 24h",
+      card_inner_title: "Mécanicien de Machines à Coudre",
+      card_btn_print: "Descarregar PDF Imprimível",
+      footer_sub: "Manutenção & Engenharia de Costura",
+      footer_rights: "Todos os direitos reservados."
+    },
+    fr: {
+      doc_title: "Isaac Carvalho — Service Après-Vente Spécialisé en Machines à Coudre",
+      brand_eyebrow: "Mécanique de Précision",
+      nav_benefits: "Avantages",
+      nav_brands: "Marques",
+      nav_diag: "Diagnostic",
+      nav_card: "Carte de Visite",
+      btn_call: "Appeler Technicien",
+      hero_eyebrow: "Assistance Technique Mobile",
+      hero_title: "Une machine à coudre en panne est une <span class='text-mechanic-amber font-medium'>perte de temps et d'argent</span>.",
+      hero_desc: "Plus de 15 ans d'expérience dans le réglage, le dépannage et l'entretien de machines à coudre familiales et industrielles. Je me déplace directement à votre domicile, atelier ou usine.",
+      hero_cta_1: "Demander une Assistance",
+      hero_cta_2: "Marques Réparées",
+      hero_feat_1: "+15 Ans d'Expérience",
+      hero_feat_2: "Service à Domicile",
+      hero_box_eyebrow: "Mécanique de Haute Précision",
+      hero_box_title: "Réglage millimétrique des boucleurs, barres à aiguilles et griffes d'entraînement.",
+      hero_box_badge: "Ans de Spécialisation",
+      bene_1_title: "Réparation sur Place",
+      bene_1_desc: "Pas besoin de transporter votre lourde machine. Je viens directement à votre adresse, atelier ou usine de confection pour effectuer le dépannage.",
+      bene_2_title: "Réactivité Maximale",
+      bene_2_desc: "Si votre production est à l'arrêt, je vous donne la priorité absolue. Intervention rapide et efficace pour remettre vos machines en marche.",
+      bene_3_title: "Garantie Technique",
+      bene_3_desc: "Tous les réglages et pièces de rechange bénéficient d'une garantie de fonctionnement et d'un support direct avec le mécanicien.",
+      brand_eyebrow_sec: "Partenaires de Confiance",
+      brand_title: "Machines Familiales & Industrielles",
+      wiz_eyebrow: "Diagnostic Rapide",
+      wiz_title: "Demander un Dépannage",
+      wiz_desc: "Précisez la panne et l'urgence pour obtenir une estimation et planifier l'intervention à domicile.",
+      wiz_s1_title: "1. Quel est le type de machine ?",
+      wiz_s1_opt1: "Machine Familiale / Domestique",
+      wiz_s1_opt1_desc: "Portative ou meuble ancien (Singer, Brother, Janome, etc.)",
+      wiz_s1_opt2: "Machine Industrielle (Piqueuse/Surjeteuse)",
+      wiz_s1_opt2_desc: "Haute vitesse, surjeteuse industrielle, recouvreuse.",
+      wiz_s2_title: "2. Quel est le symptôme de la panne ?",
+      wiz_s2_opt1: "Le fil casse",
+      wiz_s2_opt2: "Points sautés",
+      wiz_s2_opt3: "Machine bloquée",
+      wiz_s2_opt4: "Bruit anormal",
+      wiz_s3_title: "3. Quel est le niveau d'urgence ?",
+      wiz_s3_opt1: "Normal",
+      wiz_s3_opt1_desc: "Révision générale, entretien de routine ou panne légère.",
+      wiz_s3_opt2: "URGENT (Production Arrêtée !)",
+      wiz_s3_opt2_desc: "Panne critique bloquant toute votre chaîne de production de couture.",
+      wiz_s4_title: "4. Finaliser la Demande d'Intervention",
+      wiz_form_name: "Votre Nom",
+      wiz_form_phone: "Votre Téléphone",
+      wiz_form_notes: "Votre Adresse / Notes sur la Panne",
+      btn_submit_wa: "Demander l'Intervention sur WhatsApp",
+      btn_next: "Étape Suivante",
+      btn_back: "Retour",
+      card_sec_eyebrow: "Contact Direct",
+      card_sec_title: "Conservez le contact de votre Mécanicien",
+      card_sec_desc: "Lisez le QR code ci-dessous avec votre mobile pour envoyer un message ou appeler directement pour un dépannage.",
+      card_format: "Format Officiel 85x55mm",
+      card_inner_eyebrow: "Assistance Urgente 24h",
+      card_inner_title: "Mécanicien de Machines à Coudre",
+      card_btn_print: "Télécharger le PDF Imprimable",
+      footer_sub: "Entretien & Ingénierie des Machines à Coudre",
+      footer_rights: "Tous droits réservés."
+    },
+    en: {
+      doc_title: "Isaac Carvalho — Specialized Sewing Machine Technical Support",
+      brand_eyebrow: "Precision Engineering",
+      nav_benefits: "Advantages",
+      nav_brands: "Brands",
+      nav_diag: "Diagnostic",
+      nav_card: "Business Card",
+      btn_call: "Call Technician",
+      hero_eyebrow: "Mobile On-Site Support",
+      hero_title: "A stopped sewing machine is a <span class='text-mechanic-amber font-medium'>certain loss of profit</span>.",
+      hero_desc: "Over 15 years of technical specialization in tuning, repairing, and maintaining domestic and industrial sewing machines. I come directly to your home, studio, or factory.",
+      hero_cta_1: "Request Technical Support",
+      hero_cta_2: "Brands Repaired",
+      hero_feat_1: "+15 Years of Experience",
+      hero_feat_2: "On-Site Home Service",
+      hero_box_eyebrow: "High-Precision Mechanics",
+      hero_box_title: "Millimeter-level adjustment of loopers, needle bars, and feed dogs.",
+      hero_box_badge: "Years of Specialization",
+      bene_1_title: "On-Site Repair",
+      bene_1_desc: "No need to carry your heavy machine around. I come directly to your home, studio, or industrial sewing line to complete the repair.",
+      bene_2_title: "Maximum Speed",
+      bene_2_desc: "If your production is stopped due to breakdown, I provide maximum priority. Promptness and absolute efficiency to get you running.",
+      bene_3_title: "Technical Warranty",
+      bene_3_desc: "All adjustments and spare parts replacements are backed by a performance warranty and direct follow-up with the technician.",
+      brand_eyebrow_sec: "Trusted Brands",
+      brand_title: "Domestic & Industrial Sewing Machines",
+      wiz_eyebrow: "Quick Diagnostic",
+      wiz_title: "Book a Repair Session",
+      wiz_desc: "Provide details of the breakdown and urgency to receive an estimate and book the technician's visit.",
+      wiz_s1_title: "1. What is the machine type?",
+      wiz_s1_opt1: "Domestic / Home Machine",
+      wiz_s1_opt1_desc: "Portable or vintage sewing machine (Singer, Brother, Janome, etc.)",
+      wiz_s1_opt2: "Industrial Machine (Straight Stitch/Overlock)",
+      wiz_s1_opt2_desc: "High-speed production, sergers, coverstitch machines.",
+      wiz_s2_title: "2. What is the symptom?",
+      wiz_s2_opt1: "Thread breaks frequently",
+      wiz_s2_opt2: "Skipped stitches",
+      wiz_s2_opt3: "Machine is locked / seized",
+      wiz_s2_opt4: "Unusual loud noise",
+      wiz_s3_title: "3. What is the urgency level?",
+      wiz_s3_opt1: "Normal",
+      wiz_s3_opt1_desc: "General maintenance, routine check-up, or light issue.",
+      wiz_s3_opt2: "URGENT (Production Stopped!)",
+      wiz_s3_opt2_desc: "Critical breakdown halting your sewing line or garment workshop.",
+      wiz_s4_title: "4. Complete Your Request",
+      wiz_form_name: "Your Name",
+      wiz_form_phone: "Your Phone Number",
+      wiz_form_notes: "Your Address / Details of the Breakdown",
+      btn_submit_wa: "Request Support via WhatsApp",
+      btn_next: "Next Step",
+      btn_back: "Back",
+      card_sec_eyebrow: "Direct Contact",
+      card_sec_title: "Save your Mechanic's Contact Info",
+      card_sec_desc: "Scan the QR code below with your phone to send a message or call directly for quick support.",
+      card_format: "Official Format 85x55mm",
+      card_inner_eyebrow: "Assistance Urgente 24h",
+      card_inner_title: "Mécanicien de Machines à Coudre",
+      card_btn_print: "Download Printable PDF",
+      footer_sub: "Sewing Machine Maintenance & Engineering",
+      footer_rights: "All rights reserved."
+    }
+  };
+
+  let currentLang = localStorage.getItem('isaac_portfolio_lang') || 'fr';
+
+  function setLanguage(lang) {
+    currentLang = lang;
+    localStorage.setItem('isaac_portfolio_lang', lang);
+    
+    // Atualizar elementos com data-i18n
+    document.querySelectorAll('[data-i18n]').forEach(elem => {
+      const key = elem.getAttribute('data-i18n');
+      if (translations[lang][key]) {
+        elem.innerHTML = translations[lang][key];
+      }
+    });
+
+    // Atualizar placeholders de inputs
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(elem => {
+      const key = elem.getAttribute('data-i18n-placeholder');
+      if (translations[lang][key]) {
+        elem.placeholder = translations[lang][key];
+      }
+    });
+
+    // Atualizar classes ativas dos botões de idioma
+    ['fr', 'pt', 'en'].forEach(l => {
+      const btn = document.getElementById(`lang-${l}`);
+      if (l === lang) {
+        btn.classList.add('bg-mechanic-orange', 'text-white');
+        btn.classList.remove('text-slate-100', 'hover:bg-mechanic-border/50');
+      } else {
+        btn.classList.remove('bg-mechanic-orange', 'text-white');
+        btn.classList.add('text-slate-100', 'hover:bg-mechanic-border/50');
+      }
+    });
+
+    // Atualizar o atributo lang da tag html
+    document.documentElement.lang = lang;
+  }
+
+  // Inicialização do Lucide
+  lucide.createIcons();
+
+  // Inicializar com o idioma selecionado
+  setLanguage(currentLang);
+
+  // Wizard Diagnóstico
+  function nextDiagStep(stepNum) {
+    document.querySelectorAll('.diag-step').forEach(step => {
+      step.classList.add('hidden');
+    });
+    document.getElementById(`dstep-${stepNum}`).classList.remove('hidden');
+    const progressWidth = stepNum * 25;
+    document.getElementById('diagnostico-progress').style.width = `${progressWidth}%`;
+  }
+
+  // Formulário Submit
+  document.getElementById('diagnosticoForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const machineType = document.querySelector('input[name="machine_type"]:checked').value;
+    
+    const symptomsChecked = [];
+    document.querySelectorAll('input[name="symptoms"]:checked').forEach(c => {
+      symptomsChecked.push(c.value);
+    });
+    const symptoms = symptomsChecked.join(', ') || 'Nenhum sintoma específico selecionado';
+    
+    const urgency = document.querySelector('input[name="urgency"]:checked').value;
+    const diagName = document.getElementById('diagName').value.trim();
+    const diagPhone = document.getElementById('diagPhone').value.trim();
+    const diagNotes = document.getElementById('diagNotes').value.trim();
+
+    // Mensagem WhatsApp em função do idioma
+    let formattedMessage = "";
+    if (currentLang === 'fr') {
+      formattedMessage = `Bonjour Isaac ! J'ai besoin d'une réparation sur ma machine à coudre.\n\n*Type de machine :* ${machineType}\n*Symptômes :* ${symptoms}\n*Niveau d'urgence :* ${urgency}\n\n*Client :* ${diagName}\n*Téléphone :* ${diagPhone}\n*Adresse/Notes :* ${diagNotes}`;
+    } else if (currentLang === 'en') {
+      formattedMessage = `Hello Isaac! I need support for my sewing machine.\n\n*Machine Type:* ${machineType}\n*Symptoms:* ${symptoms}\n*Urgency Level:* ${urgency}\n\n*Client:* ${diagName}\n*Phone:* ${diagPhone}\n*Address/Notes:* ${diagNotes}`;
+    } else {
+      formattedMessage = `Olá Isaac! Preciso de uma reparação na minha máquina de costura.\n\n*Tipo de Máquina:* ${machineType}\n*Sintomas:* ${symptoms}\n*Nível de Urgência:* ${urgency}\n\n*Cliente:* ${diagName}\n*Telemóvel:* ${diagPhone}\n*Morada/Notas:* ${diagNotes}`;
+    }
+    
+    const whatsappLink = `https://wa.me/33673102801?text=${encodeURIComponent(formattedMessage)}`;
+    window.open(whatsappLink, '_blank');
+  });
+</script>
+</body>
+</html>
